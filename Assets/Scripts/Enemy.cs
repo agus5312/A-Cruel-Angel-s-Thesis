@@ -26,6 +26,10 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void NoLight()
+    {
+        encendida = false;
+    }
     
     private void OnTriggerEnter(Collider other)
     {
