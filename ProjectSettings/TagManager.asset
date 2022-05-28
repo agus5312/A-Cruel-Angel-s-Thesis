@@ -7,6 +7,11 @@ TagManager:
   - CinemachineTarget
   - Enemy
   - Luz
+  - Flash
+  - Linterna
+  - Camara
+  - Rollo
+  - Bateria
   layers:
   - Default
   - TransparentFX

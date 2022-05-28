@@ -36,6 +36,11 @@ public class Flash : MonoBehaviour
         flash.SetActive(false); 
     }
 
+    public void AumentarTiros()
+    {
+        tiros += 4;
+        cantidad.text = tiros.ToString();
+    }
     private void OnDisable()
     {
         texto.SetActive(false);

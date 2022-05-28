@@ -53,6 +53,15 @@ public class Linterna : MonoBehaviour
         
     }
 
+    public void AumentarBateria()
+    {
+        bateria += 0.5f;
+        if(bateria > 1)
+        {
+            bateria = 1;
+        }
+        slider.value = bateria;
+    }
     private void OnEnable()
     {
         maracador.SetActive(true);

@@ -33,13 +33,23 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Flash")
+        {
+            StartCoroutine(Flash());
+        }
+
         if (other.tag == "Luz")
         {
             encendida = true;
         }
     }
 
+    IEnumerator Flash()
+    {
+        encendida = true;
+        yield return new WaitForSeconds(4);
+        encendida = false;
+    }
     
     private void OnTriggerExit(Collider other)
     {
