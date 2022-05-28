@@ -9,9 +9,9 @@ public class CambiaItems : MonoBehaviour
     int i;
     public GameObject linterna;
     public GameObject camara;
+
     private void Start()
     {
-        
         i = 0;
         for (int a = 0; a < objetos.Count; a++)
         {
@@ -41,7 +41,6 @@ public class CambiaItems : MonoBehaviour
             objetos[i].SetActive(true);
         }
 
-        
 
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -63,7 +62,7 @@ public class CambiaItems : MonoBehaviour
                         break;
 
                     case "Bateria":
-                        linterna.GetComponent<Linterna>().AumentarBateria();
+                        linterna.GetComponent<Linterna>().MasPilas();
                         Destroy(hitInfo.collider.gameObject);
                         break;
                     case "Rollo":

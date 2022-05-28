@@ -8,16 +8,21 @@ public class Linterna : MonoBehaviour
     public GameObject luz;
     bool encendida;
     public GameObject maracador;
+    public GameObject contador;
     public Slider slider;
+    public Text cantidadpilas;
     float bateria = 1;
+    public int pilas = 0;
     
 
     private void Start()
     {
         maracador.SetActive(true);
+        contador.SetActive(true);
         luz.SetActive(false);
         encendida = false;
         slider.value = bateria;
+        cantidadpilas.text = pilas.ToString();
     }
     void Update()
     {
@@ -50,25 +55,34 @@ public class Linterna : MonoBehaviour
             }
         }
 
-        
+        if (Input.GetKey(KeyCode.R) && pilas > 0)
+        {
+            AumentarBateria();
+            pilas--;
+            cantidadpilas.text = pilas.ToString();
+        }
+    }
+
+    public void MasPilas()
+    {
+        pilas++;
+        cantidadpilas.text = pilas.ToString();
     }
 
     public void AumentarBateria()
     {
-        bateria += 0.5f;
-        if(bateria > 1)
-        {
-            bateria = 1;
-        }
+        bateria = 1;
         slider.value = bateria;
     }
     private void OnEnable()
     {
         maracador.SetActive(true);
+        contador.SetActive(true);
     }
 
     private void OnDisable()
     {
         maracador.SetActive(false);
+        contador.SetActive(false);
     }
 }
