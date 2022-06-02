@@ -20,18 +20,19 @@ public class Moon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             StartCoroutine(Cambiar());
+            
         }
     }
 
     IEnumerator Cambiar()
     {
-        yield return new WaitForSeconds(0.1f); 
 
         for (int i = 0; i < 100; i++)
         {
             a -= 0.01f;
             rend.material.SetColor("_EmissionColor", new Color(1, a, a));
             LMoon.color = new Color(1, a, a);
+            LMoon.intensity += 0.0005f;
             yield return new WaitForSeconds(0.1f);
         }
     }
