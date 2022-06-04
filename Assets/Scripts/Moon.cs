@@ -32,7 +32,7 @@ public class Moon : MonoBehaviour
             a -= 0.01f;
             rend.material.SetColor("_EmissionColor", new Color(1, a, a));
             LMoon.color = new Color(1, a, a);
-            LMoon.intensity += 0.0005f;
+            LMoon.intensity += 0.0018f;
             yield return new WaitForSeconds(0.1f);
         }
     }
