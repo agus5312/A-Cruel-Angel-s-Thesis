@@ -9,6 +9,7 @@ public class CambiaItems : MonoBehaviour
     int i;
     public GameObject linterna;
     public GameObject camara;
+    public List<string> llaves;
 
     private void Start()
     {
@@ -51,6 +52,32 @@ public class CambiaItems : MonoBehaviour
                 string Tag = hitInfo.collider.gameObject.tag;
                 switch (Tag)
                 {
+                    case "Bateria":
+                        linterna.GetComponent<Linterna>().MasPilas();
+                        Destroy(hitInfo.collider.gameObject);
+                        break;
+
+                    case "Rollo":
+                        camara.GetComponent<Flash>().AumentarTiros();
+                        Destroy(hitInfo.collider.gameObject);
+                        break;
+
+                    case "Puerta":
+                        GameObject puerta = hitInfo.collider.gameObject;
+                        for (int i = 0; i < llaves.Count; i++)
+                        {
+                            if(llaves[i] == puerta.GetComponent<Puertas>().tipo)
+                            {
+                                puerta.GetComponent<Puertas>().AbrirPuerta();
+                            }
+                        }
+                        break;
+
+                    case "Llave":
+                        llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
+                        Destroy(hitInfo.collider.gameObject);
+                        break;
+
                     case "Linterna":
                         objetos.Add(linterna);
                         Destroy(hitInfo.collider.gameObject);
@@ -58,15 +85,6 @@ public class CambiaItems : MonoBehaviour
 
                     case "Camara":
                         objetos.Add(camara);
-                        Destroy(hitInfo.collider.gameObject);
-                        break;
-
-                    case "Bateria":
-                        linterna.GetComponent<Linterna>().MasPilas();
-                        Destroy(hitInfo.collider.gameObject);
-                        break;
-                    case "Rollo":
-                        camara.GetComponent<Flash>().AumentarTiros();
                         Destroy(hitInfo.collider.gameObject);
                         break;
 

@@ -12,6 +12,8 @@ TagManager:
   - Camara
   - Rollo
   - Bateria
+  - Llave
+  - Puerta
   layers:
   - Default
   - TransparentFX
