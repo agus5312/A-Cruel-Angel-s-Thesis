@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5837001436506352680}
   - component: {fileID: 8567472293456320738}
   - component: {fileID: 8522043889045602303}
+  - component: {fileID: -6417326777775736737}
   m_Layer: 0
   m_Name: ArbolMuerto
   m_TagString: Untagged
@@ -111,3 +112,17 @@ LODGroup:
     renderers:
     - renderer: {fileID: 8567472293456320738}
   m_Enabled: 1
+--- !u!136 &-6417326777775736737
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918800221953898807}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.77451897
+  m_Height: 3.71069
+  m_Direction: 1
+  m_Center: {x: -0.10780585, y: 1.7053902, z: 0.03488636}
