@@ -16,11 +16,7 @@ public class Angeles : MonoBehaviour
     }
     private void Update()
     {
-        if (!atacar)
-        {
-            agent.SetDestination(transform.position);
-        }
-        else
+        if (atacar)
         {
             agent.SetDestination(player.position);
         }
@@ -28,6 +24,7 @@ public class Angeles : MonoBehaviour
     private void OnBecameVisible()
     {
         atacar = false;
+        agent.SetDestination(transform.position);
     }
 
     private void OnBecameInvisible()

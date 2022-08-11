@@ -24,6 +24,17 @@ public class Moon : MonoBehaviour
         }
     }
 
+    public void Bajar()
+    {
+        LMoon.intensity = 0.03f;
+    }
+
+    public void Subir()
+    {
+        LMoon.intensity = 0.07f;
+    }
+
+
     IEnumerator Cambiar()
     {
 

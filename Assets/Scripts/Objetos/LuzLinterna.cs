@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LuzLinterna : MonoBehaviour
 {
-    public Frogger enemigo;
+    Frogger2 enemigo;
     private void OnDisable()
     {
         enemigo.NoLight();

@@ -49,49 +49,54 @@ public class CambiaItems : MonoBehaviour
             RaycastHit hitInfo;
             if (Physics.Raycast(ray, out hitInfo))
             {
-                string Tag = hitInfo.collider.gameObject.tag;
-                switch (Tag)
+                ObjetoEnSuelo tag = hitInfo.collider.GetComponent<ObjetoEnSuelo>();
+                if (tag)
                 {
-                    case "Bateria":
-                        linterna.GetComponent<Linterna>().MasPilas();
-                        Destroy(hitInfo.collider.gameObject);
-                        break;
+                    switch (tag.type)
+                    {
+                        case "Bateria":
+                            linterna.GetComponent<Linterna>().MasPilas();
+                            Destroy(hitInfo.collider.gameObject);
+                            break;
 
-                    case "Rollo":
-                        camara.GetComponent<Flash>().AumentarTiros();
-                        Destroy(hitInfo.collider.gameObject);
-                        break;
+                        case "Rollo":
+                            camara.GetComponent<Flash>().AumentarTiros();
+                            Destroy(hitInfo.collider.gameObject);
+                            break;
 
-                    case "Puerta":
-                        GameObject puerta = hitInfo.collider.gameObject;
-                        for (int i = 0; i < llaves.Count; i++)
-                        {
-                            if(llaves[i] == puerta.GetComponent<Puertas>().tipo)
+                        case "Puerta":
+                            GameObject puerta = hitInfo.collider.gameObject;
+                            for (int i = 0; i < llaves.Count; i++)
                             {
-                                puerta.GetComponent<Puertas>().AbrirPuerta();
+                                if (llaves[i] == puerta.GetComponent<Puertas>().tipo)
+                                {
+                                    puerta.GetComponent<Puertas>().AbrirPuerta();
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case "Llave":
-                        llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
-                        Destroy(hitInfo.collider.gameObject);
-                        break;
+                        case "Llave":
+                            llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
+                            Destroy(hitInfo.collider.gameObject);
+                            break;
 
-                    case "Linterna":
-                        objetos.Add(linterna);
-                        Destroy(hitInfo.collider.gameObject);
-                        break;
+                        case "Linterna":
+                            objetos.Add(linterna);
+                            Destroy(hitInfo.collider.gameObject);
+                            break;
 
-                    case "Camara":
-                        objetos.Add(camara);
-                        Destroy(hitInfo.collider.gameObject);
-                        break;
+                        case "Camara":
+                            objetos.Add(camara);
+                            Destroy(hitInfo.collider.gameObject);
+                            break;
 
-                    default:
-                        
-                        break;
+                        default:
+
+                            break;
+                    }
+
                 }
+
             }
         }
     }

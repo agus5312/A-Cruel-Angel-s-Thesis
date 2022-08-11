@@ -6,6 +6,7 @@ public class ObjetoEnSuelo : MonoBehaviour
 {
     public GameObject indicador;
     GameObject player;
+    public string type;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
