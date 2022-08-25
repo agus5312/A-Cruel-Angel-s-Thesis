@@ -7,6 +7,7 @@ public class Frogger2 : MonoBehaviour
 {
     NavMeshAgent agent;
     Transform player;
+    Animator anim;
     Vector3 posInicial;
     bool atacar;
     bool huir;
@@ -14,13 +15,14 @@ public class Frogger2 : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         atacar = false;
+        anim = GetComponent<Animator>();
     }
     private void Start()
     {
         player = FindObjectOfType<CambiaItems>().gameObject.transform;
         posInicial = transform.position;
-
         huir = false;
+        anim.SetTrigger("Caminar");
     }
 
     private void Update()
@@ -34,13 +36,16 @@ public class Frogger2 : MonoBehaviour
     private void OnEnable()
     {
         atacar = true;
+        huir = false;
+        anim.SetTrigger("Caminar");
     }
 
     public void NoLight()
     {
-        StopCoroutine(Correr());
         if (!huir)
         {
+            StopCoroutine(Correr());
+            anim.SetTrigger("Caminar");
             atacar = true;
         }
     }
@@ -64,10 +69,12 @@ public class Frogger2 : MonoBehaviour
     {
         if (other.tag == "Luz")
         {
-            StopCoroutine(Correr());
+            
             if (!huir)
             {
+                StopCoroutine(Correr());
                 atacar = true;
+                anim.SetTrigger("Caminar");
             }
         }
     }
@@ -76,9 +83,11 @@ public class Frogger2 : MonoBehaviour
     {
         atacar = false;
         agent.SetDestination(transform.position);
+        anim.SetTrigger("Defenderse");
         yield return new WaitForSeconds(3);
         huir = true;
         agent.SetDestination(posInicial);
+        anim.SetTrigger("Caminar");
         agent.speed = 9f;
         yield return new WaitForSeconds(8);
         agent.speed = 7f;
