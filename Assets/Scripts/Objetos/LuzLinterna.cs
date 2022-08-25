@@ -7,6 +7,6 @@ public class LuzLinterna : MonoBehaviour
     Frogger2 enemigo;
     private void OnDisable()
     {
-        enemigo.NoLight();
+        //enemigo.NoLight();
     }
 }
