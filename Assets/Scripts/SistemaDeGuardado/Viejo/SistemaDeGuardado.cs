@@ -31,6 +31,7 @@ public class SistemaDeGuardado : MonoBehaviour
         camara.tiros = PlayerPrefs.GetInt("TCamara");
         linterna.bateria = PlayerPrefs.GetFloat("BateriaRestante");
 
+
         if(PlayerPrefs.GetInt("Froggers") == 1)
         {
             froggers.SetActive(true);

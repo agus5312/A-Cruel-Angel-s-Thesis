@@ -11,12 +11,12 @@ public class CambiaItems : MonoBehaviour
     public GameObject linterna;
     public GameObject camara;
     public List<string> llaves;
-    SistemaDeGuardado guardado;
+    InformacionGuardar informacionGuardar;
 
     private void Start()
     {
+        informacionGuardar = FindObjectOfType<InformacionGuardar>();
         pausa = false;
-        guardado = FindObjectOfType<SistemaDeGuardado>();
         i = 0;
         for (int a = 0; a < objetos.Count; a++)
         {
@@ -60,12 +60,14 @@ public class CambiaItems : MonoBehaviour
                     {
                         case "Bateria":
                             linterna.GetComponent<Linterna>().MasPilas();
-                            Destroy(hitInfo.collider.gameObject);
+                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            hitInfo.collider.gameObject.SetActive(false);
                             break;
 
                         case "Rollo":
                             camara.GetComponent<Flash>().AumentarTiros();
-                            Destroy(hitInfo.collider.gameObject);
+                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            hitInfo.collider.gameObject.SetActive(false);
                             break;
 
                         case "Puerta":
@@ -81,26 +83,23 @@ public class CambiaItems : MonoBehaviour
 
                         case "Llave":
                             llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
-                            switch (hitInfo.collider.gameObject.GetComponent<Llave>().type)
-                            {
-                                case "Cabaña":
-                                    guardado.llaveCabaña = "Cabaña";
-                                    break;
-                                case "Iglesia":
-                                    guardado.llaveIglesia = "Iglesia";
-                                    break;
-                            }
-                            Destroy(hitInfo.collider.gameObject);
+                            informacionGuardar.llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
+                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            hitInfo.collider.gameObject.SetActive(false);
                             break;
 
                         case "Linterna":
                             objetos.Add(linterna);
-                            Destroy(hitInfo.collider.gameObject);
+                            informacionGuardar.linterna = true;
+                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            hitInfo.collider.gameObject.SetActive(false);
                             break;
 
                         case "Camara":
                             objetos.Add(camara);
-                            Destroy(hitInfo.collider.gameObject);
+                            informacionGuardar.camara = true;
+                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            hitInfo.collider.gameObject.SetActive(false);
                             break;
 
                         default:

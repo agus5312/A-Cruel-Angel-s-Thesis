@@ -7,6 +7,7 @@ public class ObjetoEnSuelo : MonoBehaviour
     public GameObject indicador;
     GameObject player;
     public string type;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -35,8 +36,7 @@ public class ObjetoEnSuelo : MonoBehaviour
     {
         indicador.SetActive(false);
     }
-
-    private void OnDestroy()
+    private void OnDisable()
     {
         indicador.SetActive(false);
     }
