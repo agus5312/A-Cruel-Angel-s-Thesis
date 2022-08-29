@@ -14,15 +14,6 @@ public class Moon : MonoBehaviour
         rend = GetComponentInChildren<Renderer>();
     }
 
-    void Update()
-    {
-        //transform.Rotate(velocity * Time.deltaTime, 0, 0);
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            StartCoroutine(Cambiar());
-            
-        }
-    }
 
     public void Bajar()
     {
@@ -34,7 +25,10 @@ public class Moon : MonoBehaviour
         LMoon.intensity = 0.07f;
     }
 
-
+    public void LunaRoja()
+    {
+        StartCoroutine(Cambiar());
+    }
     IEnumerator Cambiar()
     {
 

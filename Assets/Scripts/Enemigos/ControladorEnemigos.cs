@@ -5,6 +5,8 @@ using UnityEngine;
 public class ControladorEnemigos : MonoBehaviour
 {
     [SerializeField] List<GameObject> enemigos;
+    CambiaItems player;
+    [SerializeField] float time;
     /// <summary>
     /// Lista de enemigos
     /// </summary>
@@ -16,15 +18,13 @@ public class ControladorEnemigos : MonoBehaviour
     void Start()
     {
         StartCoroutine(Ataque());
+        player = FindObjectOfType<CambiaItems>();
     }
 
     IEnumerator Ataque()
     {
-        CambiaItems player = FindObjectOfType<CambiaItems>();
-        if (player)
-        {
-            yield return new WaitForSeconds(90);
-            if (Enemigos.Count > 0)
+        yield return new WaitForSeconds(time);
+        if (Enemigos.Count > 0)
             {
                 float cerca = 0;
                 float ant = 0;
@@ -42,7 +42,6 @@ public class ControladorEnemigos : MonoBehaviour
                     }
                 }
                 Enemigos[ind].SetActive(true);
-            }
         }
         StartCoroutine(Ataque());
     }

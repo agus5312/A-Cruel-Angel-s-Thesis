@@ -8,15 +8,7 @@ public class EventoCabaña : MonoBehaviour
     int oleada = 0;
     [SerializeField] Moon moon;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            Oleada();
-        }
-    }
-
-    void Oleada()
+    public void Oleada()
     {
         if(oleada == 0)
         {

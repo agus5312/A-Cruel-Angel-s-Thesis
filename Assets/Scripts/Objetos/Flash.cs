@@ -7,7 +7,7 @@ public class Flash : MonoBehaviour
 {
     public GameObject flash;
     public GameObject texto;
-    int tiros = 4;
+    public int tiros = 4;
     public Text cantidad;
     void Start()
     {

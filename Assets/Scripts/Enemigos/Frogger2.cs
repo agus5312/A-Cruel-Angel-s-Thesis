@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Frogger2 : MonoBehaviour
 {
+    CamaraDeMuerte camarademuerte;
     NavMeshAgent agent;
     Transform player;
     Animator anim;
@@ -23,6 +24,7 @@ public class Frogger2 : MonoBehaviour
         posInicial = transform.position;
         huir = false;
         anim.SetTrigger("Caminar");
+        camarademuerte = FindObjectOfType<CamaraDeMuerte>();
     }
 
     private void Update()
@@ -47,6 +49,15 @@ public class Frogger2 : MonoBehaviour
             StopCoroutine(Correr());
             anim.SetTrigger("Caminar");
             atacar = true;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            camarademuerte.Muerte();
+            gameObject.SetActive(false);
         }
     }
 

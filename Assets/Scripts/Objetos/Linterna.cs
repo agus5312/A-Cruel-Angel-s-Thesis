@@ -11,7 +11,7 @@ public class Linterna : MonoBehaviour
     public GameObject contador;
     public Slider slider;
     public Text cantidadpilas;
-    float bateria = 1;
+    public float bateria = 1;
     public int pilas = 0;
     
 

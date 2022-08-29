@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CambiaItems : MonoBehaviour
 {
-
+    [SerializeField] GameObject menuPausa;
+    bool pausa;
     public List<GameObject> objetos;
     int i;
     public GameObject linterna;
     public GameObject camara;
     public List<string> llaves;
+    SistemaDeGuardado guardado;
 
     private void Start()
     {
+        pausa = false;
+        guardado = FindObjectOfType<SistemaDeGuardado>();
         i = 0;
         for (int a = 0; a < objetos.Count; a++)
         {
@@ -77,6 +81,15 @@ public class CambiaItems : MonoBehaviour
 
                         case "Llave":
                             llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
+                            switch (hitInfo.collider.gameObject.GetComponent<Llave>().type)
+                            {
+                                case "Cabaña":
+                                    guardado.llaveCabaña = "Cabaña";
+                                    break;
+                                case "Iglesia":
+                                    guardado.llaveIglesia = "Iglesia";
+                                    break;
+                            }
                             Destroy(hitInfo.collider.gameObject);
                             break;
 
@@ -97,6 +110,26 @@ public class CambiaItems : MonoBehaviour
 
                 }
 
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (pausa)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1f;
+                menuPausa.SetActive(false);
+                pausa = false;
+            }
+            else
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 0f;
+                menuPausa.SetActive(true);
+                pausa = true;
             }
         }
     }
