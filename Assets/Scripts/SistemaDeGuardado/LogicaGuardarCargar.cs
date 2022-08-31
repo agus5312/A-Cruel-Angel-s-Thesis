@@ -13,21 +13,23 @@ public class LogicaGuardarCargar : MonoBehaviour
     [SerializeField] GameObject froggers;
     [SerializeField] GameObject angeles;
 
-    private void Awake()
+    public List<GameObject> objetos;
+
+    private void Start()
     {
         informacionGuardar = FindObjectOfType<InformacionGuardar>();
         CargarInformacion();
 
         player = FindObjectOfType<CambiaItems>().gameObject;
         cambiaItems = FindObjectOfType<CambiaItems>();
-    }
 
-    private void Start()
-    {
-        player.transform.position = informacionGuardar.posplayer;
-        linterna.pilas = informacionGuardar.pilas;
-        camara.tiros = informacionGuardar.tiros;
-        linterna.bateria = informacionGuardar.batRestante;
+        if (player)
+        {
+            player.transform.position = informacionGuardar.posplayer;
+            linterna.pilas = informacionGuardar.pilas;
+            camara.tiros = informacionGuardar.tiros;
+            linterna.bateria = informacionGuardar.batRestante;
+        }
 
 
         if (informacionGuardar.froggers)
@@ -50,9 +52,13 @@ public class LogicaGuardarCargar : MonoBehaviour
         {
             cambiaItems.llaves.Add(llave);
         }
-        foreach (GameObject objeto in informacionGuardar.aDesactivar)
+        //foreach (GameObject objeto in informacionGuardar.aDesactivar)
+        //{
+        //    objeto.SetActive(false);
+        //}
+        foreach (int objeto in informacionGuardar.aDesactivar)
         {
-            objeto.SetActive(false);
+            objetos[objeto].SetActive(false);
         }
     }
 

@@ -12,10 +12,13 @@ public class CambiaItems : MonoBehaviour
     public GameObject camara;
     public List<string> llaves;
     InformacionGuardar informacionGuardar;
+    LogicaGuardarCargar logica;
 
     private void Start()
     {
         informacionGuardar = FindObjectOfType<InformacionGuardar>();
+        logica = FindObjectOfType<LogicaGuardarCargar>();
+
         pausa = false;
         i = 0;
         for (int a = 0; a < objetos.Count; a++)
@@ -60,13 +63,29 @@ public class CambiaItems : MonoBehaviour
                     {
                         case "Bateria":
                             linterna.GetComponent<Linterna>().MasPilas();
-                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            foreach (GameObject item in logica.objetos)
+                            {
+                                if(hitInfo.collider.gameObject == item)
+                                {
+                                    informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
+                                    break;
+                                }
+                            }
                             hitInfo.collider.gameObject.SetActive(false);
                             break;
 
                         case "Rollo":
                             camara.GetComponent<Flash>().AumentarTiros();
-                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            foreach (GameObject item in logica.objetos)
+                            {
+                                if (hitInfo.collider.gameObject == item)
+                                {
+                                    informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
+                                    break;
+                                }
+                            }
                             hitInfo.collider.gameObject.SetActive(false);
                             break;
 
@@ -84,21 +103,45 @@ public class CambiaItems : MonoBehaviour
                         case "Llave":
                             llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
                             informacionGuardar.llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
-                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            foreach (GameObject item in logica.objetos)
+                            {
+                                if (hitInfo.collider.gameObject == item)
+                                {
+                                    informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
+                                    break;
+                                }
+                            }
                             hitInfo.collider.gameObject.SetActive(false);
                             break;
 
                         case "Linterna":
                             objetos.Add(linterna);
                             informacionGuardar.linterna = true;
-                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            foreach (GameObject item in logica.objetos)
+                            {
+                                if (hitInfo.collider.gameObject == item)
+                                {
+                                    informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
+                                    break;
+                                }
+                            }
                             hitInfo.collider.gameObject.SetActive(false);
                             break;
 
                         case "Camara":
                             objetos.Add(camara);
                             informacionGuardar.camara = true;
-                            informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
+                            foreach (GameObject item in logica.objetos)
+                            {
+                                if (hitInfo.collider.gameObject == item)
+                                {
+                                    informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
+                                    break;
+                                }
+                            }
                             hitInfo.collider.gameObject.SetActive(false);
                             break;
 

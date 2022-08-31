@@ -15,21 +15,19 @@ public class Frogger2 : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        atacar = false;
         anim = GetComponent<Animator>();
     }
     private void Start()
     {
         player = FindObjectOfType<CambiaItems>().gameObject.transform;
         posInicial = transform.position;
-        huir = false;
         anim.SetTrigger("Caminar");
         camarademuerte = FindObjectOfType<CamaraDeMuerte>();
     }
 
     private void Update()
     {
-        if (atacar)
+        if (atacar && !huir)
         {
             agent.SetDestination(player.position);
         } 
@@ -66,13 +64,23 @@ public class Frogger2 : MonoBehaviour
         if (other.tag == "Flash")
         {
             if (!huir)
+            {
+                atacar = false;
+                agent.SetDestination(transform.position);
+                anim.SetTrigger("Defenderse");
                 StartCoroutine(Correr());
+            }
         }
 
         if (other.tag == "Luz")
         {
             if (!huir)
+            {
+                atacar = false;
+                agent.SetDestination(transform.position);
+                anim.SetTrigger("Defenderse");
                 StartCoroutine(Correr());
+            }
         }
     }
 
@@ -80,7 +88,6 @@ public class Frogger2 : MonoBehaviour
     {
         if (other.tag == "Luz")
         {
-            
             if (!huir)
             {
                 StopCoroutine(Correr());
@@ -92,9 +99,6 @@ public class Frogger2 : MonoBehaviour
 
     IEnumerator Correr()
     {
-        atacar = false;
-        agent.SetDestination(transform.position);
-        anim.SetTrigger("Defenderse");
         yield return new WaitForSeconds(3);
         huir = true;
         agent.SetDestination(posInicial);

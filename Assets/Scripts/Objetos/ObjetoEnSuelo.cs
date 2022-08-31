@@ -38,6 +38,9 @@ public class ObjetoEnSuelo : MonoBehaviour
     }
     private void OnDisable()
     {
-        indicador.SetActive(false);
+        if (indicador)
+        {
+            indicador.SetActive(false);
+        }
     }
 }

@@ -12,6 +12,8 @@ public class LuzLinterna : MonoBehaviour
     private void OnDisable()
     {
         if(enemigo != null)
-        enemigo.NoLight();
+        {
+            enemigo.NoLight();
+        }
     }
 }

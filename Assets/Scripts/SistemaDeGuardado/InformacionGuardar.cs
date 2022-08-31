@@ -11,8 +11,8 @@ public class InformacionGuardar : MonoBehaviour
     public bool camara;
     public Vector3 posplayer;
 
-    public List<GameObject> aDesactivar;
-
+    //public List<GameObject> aDesactivar;
+    public List<int> aDesactivar;
     public List<string> llaves;
 
     public int pilas;
