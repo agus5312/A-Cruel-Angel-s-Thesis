@@ -6,18 +6,29 @@ public class CambiaItems : MonoBehaviour
 {
     [SerializeField] GameObject menuPausa;
     bool pausa;
+    bool moviendose;
     public List<GameObject> objetos;
     int i;
     public GameObject linterna;
     public GameObject camara;
     public List<string> llaves;
+
     InformacionGuardar informacionGuardar;
     LogicaGuardarCargar logica;
+    StarterAssets.FirstPersonController controlador;
+    StarterAssets.StarterAssetsInputs imputs;
+
+    AudioSource pasos;
+    [SerializeField] AudioClip caminar;
+    [SerializeField] AudioClip correr;
 
     private void Start()
     {
         informacionGuardar = FindObjectOfType<InformacionGuardar>();
         logica = FindObjectOfType<LogicaGuardarCargar>();
+        controlador = FindObjectOfType<StarterAssets.FirstPersonController>();
+        imputs = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
+        pasos = GetComponent<AudioSource>();
 
         pausa = false;
         i = 0;
@@ -28,13 +39,20 @@ public class CambiaItems : MonoBehaviour
     }
     void Update()
     {
+        Pasos();
+        Items();
+        Menu();
+    }
+
+    void Items()
+    {
         if (Input.GetAxisRaw("Mouse ScrollWheel") > 0f)
         {
             objetos[i].SetActive(false);
             i--;
             if (i < 0)
             {
-                i = objetos.Count -1;
+                i = objetos.Count - 1;
             }
             objetos[i].SetActive(true);
         }
@@ -42,7 +60,7 @@ public class CambiaItems : MonoBehaviour
         {
             objetos[i].SetActive(false);
             i++;
-            if(i > objetos.Count -1)
+            if (i > objetos.Count - 1)
             {
                 i = 0;
             }
@@ -66,7 +84,7 @@ public class CambiaItems : MonoBehaviour
                             //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
                             foreach (GameObject item in logica.objetos)
                             {
-                                if(hitInfo.collider.gameObject == item)
+                                if (hitInfo.collider.gameObject == item)
                                 {
                                     informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
                                     break;
@@ -154,7 +172,38 @@ public class CambiaItems : MonoBehaviour
 
             }
         }
+    }
 
+    void Pasos()
+    {
+        if (imputs.move != new Vector2(0, 0) && controlador.Grounded)
+        {
+            if(moviendose == false)
+            {
+                pasos.Play();
+            }
+            moviendose = true;
+        }
+        else
+        {
+            pasos.Stop();
+            moviendose = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            pasos.clip = correr;
+            pasos.Play();
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            pasos.clip = caminar;
+            pasos.Play();
+        }
+    }
+
+    void Menu()
+    {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (pausa)
@@ -175,6 +224,5 @@ public class CambiaItems : MonoBehaviour
             }
         }
     }
-
 
 }
