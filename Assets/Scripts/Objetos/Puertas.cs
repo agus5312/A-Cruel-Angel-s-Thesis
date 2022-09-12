@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Puertas : MonoBehaviour
 {
-    public string tipo;
+    public TipoLllave tipo;
     Animator anim;
 
     private void Start()

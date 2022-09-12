@@ -6,7 +6,7 @@ public class ObjetoEnSuelo : MonoBehaviour
 {
     public GameObject indicador;
     GameObject player;
-    public string type;
+    public TipoObjeto type;
 
     private void Start()
     {

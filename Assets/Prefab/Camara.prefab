@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cf6918102bd7549a9c7844d296fa06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indicador: {fileID: 0}
-  type: Camara
+  indicador: {fileID: 2836508544361291675, guid: 0dfd2682e32275641a9e1bd9679e33e6, type: 3}
+  type: 5

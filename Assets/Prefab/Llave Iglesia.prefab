@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3804e9656415aa341847fe73f842b2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Iglesia
+  type: 1
 --- !u!114 &9050730503521305929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicador: {fileID: 2836508544361291675, guid: 0dfd2682e32275641a9e1bd9679e33e6, type: 3}
+  type: 3

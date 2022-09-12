@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Llave : MonoBehaviour
 {
-    public string type;
+    public TipoLllave type;
 }

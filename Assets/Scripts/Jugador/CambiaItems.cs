@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CambiaItems : MonoBehaviour
 {
@@ -11,7 +12,10 @@ public class CambiaItems : MonoBehaviour
     int i;
     public GameObject linterna;
     public GameObject camara;
-    public List<string> llaves;
+    [SerializeField] GameObject nota;
+    [SerializeField] Text contenido;
+
+    public List<TipoLllave> llaves;
 
     InformacionGuardar informacionGuardar;
     LogicaGuardarCargar logica;
@@ -79,9 +83,12 @@ public class CambiaItems : MonoBehaviour
                 {
                     switch (tag.type)
                     {
-                        case "Bateria":
+                        case TipoObjeto.NOTA:
+                            contenido.text = hitInfo.collider.GetComponent<Notas>().contenido;
+                            nota.SetActive(true);
+                            break;
+                        case TipoObjeto.BATERIA:
                             linterna.GetComponent<Linterna>().MasPilas();
-                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
                             foreach (GameObject item in logica.objetos)
                             {
                                 if (hitInfo.collider.gameObject == item)
@@ -93,9 +100,8 @@ public class CambiaItems : MonoBehaviour
                             hitInfo.collider.gameObject.SetActive(false);
                             break;
 
-                        case "Rollo":
+                        case TipoObjeto.ROLLO:
                             camara.GetComponent<Flash>().AumentarTiros();
-                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
                             foreach (GameObject item in logica.objetos)
                             {
                                 if (hitInfo.collider.gameObject == item)
@@ -107,7 +113,7 @@ public class CambiaItems : MonoBehaviour
                             hitInfo.collider.gameObject.SetActive(false);
                             break;
 
-                        case "Puerta":
+                        case TipoObjeto.PUERTA:
                             GameObject puerta = hitInfo.collider.gameObject;
                             for (int i = 0; i < llaves.Count; i++)
                             {
@@ -118,10 +124,9 @@ public class CambiaItems : MonoBehaviour
                             }
                             break;
 
-                        case "Llave":
+                        case TipoObjeto.LLAVE:
                             llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
                             informacionGuardar.llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
-                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
                             foreach (GameObject item in logica.objetos)
                             {
                                 if (hitInfo.collider.gameObject == item)
@@ -133,10 +138,9 @@ public class CambiaItems : MonoBehaviour
                             hitInfo.collider.gameObject.SetActive(false);
                             break;
 
-                        case "Linterna":
+                        case TipoObjeto.LINTERNA:
                             objetos.Add(linterna);
                             informacionGuardar.linterna = true;
-                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
                             foreach (GameObject item in logica.objetos)
                             {
                                 if (hitInfo.collider.gameObject == item)
@@ -148,10 +152,9 @@ public class CambiaItems : MonoBehaviour
                             hitInfo.collider.gameObject.SetActive(false);
                             break;
 
-                        case "Camara":
+                        case TipoObjeto.CAMARA:
                             objetos.Add(camara);
                             informacionGuardar.camara = true;
-                            //informacionGuardar.aDesactivar.Add(hitInfo.collider.gameObject);
                             foreach (GameObject item in logica.objetos)
                             {
                                 if (hitInfo.collider.gameObject == item)

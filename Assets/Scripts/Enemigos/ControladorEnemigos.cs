@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class ControladorEnemigos : MonoBehaviour
 {
-    [SerializeField] List<GameObject> enemigos;
+    [SerializeField] GameObject enemigo;
+    [SerializeField] List<Vector3> pos;
     CambiaItems player;
     [SerializeField] float time;
-    /// <summary>
-    /// Lista de enemigos
-    /// </summary>
-    public List<GameObject> Enemigos 
-        {
-         get{return enemigos;}
-        }
+    
 
     void Start()
     {
@@ -24,14 +19,16 @@ public class ControladorEnemigos : MonoBehaviour
     IEnumerator Ataque()
     {
         yield return new WaitForSeconds(time);
-        if (Enemigos.Count > 0)
+        
+
+        if (pos.Count > 0)
             {
                 float cerca = 0;
                 float ant = 0;
                 int ind = 0;
-                for (int i = 0; i < Enemigos.Count; i++)
+                for (int i = 0; i < pos.Count; i++)
                 {
-                    cerca = Vector3.Distance(player.gameObject.transform.position, Enemigos[i].transform.position);
+                    cerca = Vector3.Distance(player.gameObject.transform.position, pos[i]);
                     if (ant == 0)
                     {
                         ant = cerca;
@@ -41,7 +38,11 @@ public class ControladorEnemigos : MonoBehaviour
                         ind = i;
                     }
                 }
-                Enemigos[ind].SetActive(true);
+            if (!enemigo.activeInHierarchy)
+            {
+                enemigo.transform.position = pos[ind];
+                enemigo.SetActive(true);
+            }
         }
         StartCoroutine(Ataque());
     }

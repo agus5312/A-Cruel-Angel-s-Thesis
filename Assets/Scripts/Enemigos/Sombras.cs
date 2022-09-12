@@ -5,12 +5,13 @@ using UnityEngine;
 public class Sombras : MonoBehaviour
 {
     GameObject player;
-    ControladorSombras cont;
     float distancia = 0;
+    int i = 0;
+    public Vector3[] sombrasPos;
+
     private void Start()
     {
         player = FindObjectOfType<CambiaItems>().gameObject;
-        cont = FindObjectOfType<ControladorSombras>();
     }
 
     private void Update()
@@ -18,9 +19,20 @@ public class Sombras : MonoBehaviour
         distancia = Vector3.Distance(transform.position, player.transform.position);
         if (distancia < 15)
         {
-            gameObject.SetActive(false);
-            cont.Cambio();
+            Cambio();
         }
         transform.LookAt(player.transform);
+    }
+
+
+    public void Cambio()
+    {
+        i++; 
+        if (i == sombrasPos.Length)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+            transform.position = sombrasPos[i];
     }
 }

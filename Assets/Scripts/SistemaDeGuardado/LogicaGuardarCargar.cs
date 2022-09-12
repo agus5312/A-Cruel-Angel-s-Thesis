@@ -11,6 +11,7 @@ public class LogicaGuardarCargar : MonoBehaviour
     [SerializeField] Linterna linterna;
 
     [SerializeField] GameObject froggers;
+    [SerializeField] GameObject eventoFroggers;
     [SerializeField] GameObject angeles;
 
     public List<GameObject> objetos;
@@ -35,6 +36,7 @@ public class LogicaGuardarCargar : MonoBehaviour
         if (informacionGuardar.froggers)
         {
             froggers.SetActive(true);
+            eventoFroggers.SetActive(false);
         }
         if (informacionGuardar.angeles)
         {
@@ -48,14 +50,11 @@ public class LogicaGuardarCargar : MonoBehaviour
         {
             cambiaItems.objetos.Add(cambiaItems.camara);
         }
-        foreach (string llave in informacionGuardar.llaves)
+        foreach (TipoLllave llave in informacionGuardar.llaves)
         {
             cambiaItems.llaves.Add(llave);
         }
-        //foreach (GameObject objeto in informacionGuardar.aDesactivar)
-        //{
-        //    objeto.SetActive(false);
-        //}
+
         foreach (int objeto in informacionGuardar.aDesactivar)
         {
             objetos[objeto].SetActive(false);
@@ -73,7 +72,7 @@ public class LogicaGuardarCargar : MonoBehaviour
 
     public void LimpiarInformacion()
     {
-        informacionGuardar.posplayer = new Vector3(0, 0, 0);
+        informacionGuardar.posplayer = new Vector3(190, 0.4f, -370);
 
         informacionGuardar.pilas = 0;
         informacionGuardar.tiros = 4;
@@ -93,11 +92,14 @@ public class LogicaGuardarCargar : MonoBehaviour
 
     public void GuardarInformacion()
     {
-        informacionGuardar.posplayer = player.transform.position;
-
-        informacionGuardar.pilas = linterna.pilas;
-        informacionGuardar.tiros = camara.tiros;
-        informacionGuardar.batRestante = linterna.bateria;
+        if (player)
+        {
+            informacionGuardar.posplayer = player.transform.position;
+            informacionGuardar.pilas = linterna.pilas;
+            informacionGuardar.tiros = camara.tiros;
+            informacionGuardar.batRestante = linterna.bateria;
+        }
+        else Debug.LogWarning("Falta Player");
 
         GuardarPartida(informacionGuardar);
     }
