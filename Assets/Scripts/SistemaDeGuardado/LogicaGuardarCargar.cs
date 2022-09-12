@@ -57,7 +57,8 @@ public class LogicaGuardarCargar : MonoBehaviour
 
         foreach (int objeto in informacionGuardar.aDesactivar)
         {
-            objetos[objeto].SetActive(false);
+            if(objetos[objeto])
+                objetos[objeto].SetActive(false);
         }
     }
 
