@@ -1,6 +1,6 @@
 public enum TipoObjeto
 {
-    BATERIA, ROLLO, PUERTA, LLAVE, LINTERNA, CAMARA, NOTA
+    BATERIA, ROLLO, PUERTA, LLAVE, LINTERNA, CAMARA, NOTA, PORTAL
 }
 
 public enum TipoLllave

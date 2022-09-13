@@ -124,6 +124,17 @@ public class CambiaItems : MonoBehaviour
                             }
                             break;
 
+                        case TipoObjeto.PORTAL:
+                            GameObject portal = hitInfo.collider.gameObject;
+                            for (int i = 0; i < llaves.Count; i++)
+                            {
+                                if (llaves[i] == portal.GetComponent<Portal>().tipo)
+                                {
+                                    portal.GetComponent<Portal>().Cambio();
+                                }
+                            }
+                            break;
+
                         case TipoObjeto.LLAVE:
                             llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
                             informacionGuardar.llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
@@ -167,7 +178,6 @@ public class CambiaItems : MonoBehaviour
                             break;
 
                         default:
-
                             break;
                     }
 
