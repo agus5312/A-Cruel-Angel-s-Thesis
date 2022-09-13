@@ -104,6 +104,20 @@ public class LogicaGuardarCargar : MonoBehaviour
 
         GuardarPartida(informacionGuardar);
     }
+
+    public void GuardarInformacionCambioEscena(Vector3 pos)
+    {
+        if (player)
+        {
+            informacionGuardar.posplayer = pos;
+            informacionGuardar.pilas = linterna.pilas;
+            informacionGuardar.tiros = camara.tiros;
+            informacionGuardar.batRestante = linterna.bateria;
+        }
+        else Debug.LogWarning("Falta Player");
+
+        GuardarPartida(informacionGuardar);
+    }
     public void CargarInformacion()
     {
         CargarPartida(informacionGuardar);
