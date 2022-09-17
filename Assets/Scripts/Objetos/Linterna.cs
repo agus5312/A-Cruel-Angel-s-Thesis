@@ -82,7 +82,10 @@ public class Linterna : MonoBehaviour
 
     private void OnDisable()
     {
-        maracador.SetActive(false);
-        contador.SetActive(false);
+        if (maracador)
+        {
+            maracador.SetActive(false);
+            contador.SetActive(false);
+        }
     }
 }

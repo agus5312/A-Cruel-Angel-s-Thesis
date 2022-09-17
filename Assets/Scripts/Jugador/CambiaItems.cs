@@ -23,8 +23,8 @@ public class CambiaItems : MonoBehaviour
     StarterAssets.StarterAssetsInputs imputs;
 
     AudioSource pasos;
-    [SerializeField] AudioClip caminar;
-    [SerializeField] AudioClip correr;
+    public AudioClip caminar;
+    public AudioClip correr;
 
     private void Start()
     {
@@ -237,5 +237,4 @@ public class CambiaItems : MonoBehaviour
             }
         }
     }
-
 }

@@ -5,10 +5,13 @@ using UnityEngine.AI;
 
 public class Frogger2 : MonoBehaviour
 {
+    [SerializeField] AudioClip correr;
+    [SerializeField] AudioClip gruñido;
     CamaraDeMuerte camarademuerte;
     NavMeshAgent agent;
     Transform player;
     Animator anim;
+    AudioSource sonid;
     Vector3 posInicial;
     bool atacar;
     bool huir;
@@ -16,12 +19,14 @@ public class Frogger2 : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        sonid = GetComponent<AudioSource>();
+
     }
     private void Start()
     {
         player = FindObjectOfType<CambiaItems>().gameObject.transform;
         posInicial = transform.position;
-        anim.SetTrigger("Caminar");
+        anim.SetInteger("Estado", 1);
         camarademuerte = FindObjectOfType<CamaraDeMuerte>();
     }
 
@@ -37,7 +42,9 @@ public class Frogger2 : MonoBehaviour
     {
         atacar = true;
         huir = false;
-        anim.SetTrigger("Caminar");
+        anim.SetInteger("Estado", 1);
+        sonid.clip = correr;
+        sonid.Play();
     }
 
     public void NoLight()
@@ -45,7 +52,9 @@ public class Frogger2 : MonoBehaviour
         if (!huir)
         {
             StopCoroutine(Correr());
-            anim.SetTrigger("Caminar");
+            anim.SetInteger("Estado", 1);
+            sonid.clip = correr;
+            sonid.Play();
             atacar = true;
         }
     }
@@ -67,7 +76,9 @@ public class Frogger2 : MonoBehaviour
             {
                 atacar = false;
                 agent.SetDestination(transform.position);
-                anim.SetTrigger("Defenderse");
+                anim.SetInteger("Estado", 2);
+                sonid.clip = gruñido;
+                sonid.Play();
                 StartCoroutine(Correr());
             }
         }
@@ -78,7 +89,9 @@ public class Frogger2 : MonoBehaviour
             {
                 atacar = false;
                 agent.SetDestination(transform.position);
-                anim.SetTrigger("Defenderse");
+                anim.SetInteger("Estado", 2);
+                sonid.clip = gruñido;
+                sonid.Play();
                 StartCoroutine(Correr());
             }
         }
@@ -92,7 +105,9 @@ public class Frogger2 : MonoBehaviour
             {
                 StopCoroutine(Correr());
                 atacar = true;
-                anim.SetTrigger("Caminar");
+                anim.SetInteger("Estado", 1);
+                sonid.clip = correr;
+                sonid.Play();
             }
         }
     }
@@ -102,7 +117,9 @@ public class Frogger2 : MonoBehaviour
         yield return new WaitForSeconds(3);
         huir = true;
         agent.SetDestination(posInicial);
-        anim.SetTrigger("Caminar");
+        anim.SetInteger("Estado", 1);
+        sonid.clip = correr;
+        sonid.Play();
         agent.speed = 9f;
         yield return new WaitForSeconds(8);
         agent.speed = 7f;

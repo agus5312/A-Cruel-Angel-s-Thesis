@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6602788066529194072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6602788066529194053}
+  - component: {fileID: 6602788066529194054}
+  - component: {fileID: 6602788066529194055}
+  m_Layer: 0
+  m_Name: CambiaSonidos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6602788066529194053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602788066529194072}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 316.893, y: 0.796, z: 314.747}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
+--- !u!65 &6602788066529194054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602788066529194072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.6221542, z: 0.2566589}
+  m_Center: {x: -0.00000024206372, y: -0.18892291, z: -0.3716705}
+--- !u!114 &6602788066529194055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602788066529194072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e2c1aad1158cf42a1bfdb8608e9551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pasosBosque: {fileID: 8300000, guid: d365d472dcc05354ba2ccad459706cfc, type: 3}
+  "pasosCaba\xF1a": {fileID: 8300000, guid: 0a074af6892062948bc04e9b8838f4bd, type: 3}
+  pasosIglesia: {fileID: 8300000, guid: 5a2f7813f75510343af0bb1c293e6910, type: 3}
+  correrBosque: {fileID: 8300000, guid: 8d181c75148a7f04c9f262ffc9cb97c4, type: 3}
+  "correrCaba\xF1a": {fileID: 8300000, guid: 1a18b11fb5de85144b8cd4e16f43e93c, type: 3}
+  correrIglesia: {fileID: 8300000, guid: b94f6e948ebe7b945939d1fcbe7387b5, type: 3}
+  ambienteBosque: {fileID: 8300000, guid: 4a3456a317c206d4bb102bcfc14ea9b6, type: 3}
+  "ambienteCaba\xF1a": {fileID: 8300000, guid: 989c8fdc77cfa1246a2745758f061129, type: 3}
+  ambienteIglesia: {fileID: 8300000, guid: 258eec86e342f3747aa14255b84e78a0, type: 3}
+  lugar: 0
+  ambiente: {fileID: 0}
+  pasosPersonaje: {fileID: 0}

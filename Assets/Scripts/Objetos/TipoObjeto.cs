@@ -7,3 +7,9 @@ public enum TipoLllave
 {
     CABAÑA, IGLESIA, CEMENTERIO
 }
+
+public enum Lugar
+{
+    CABAÑA, IGLESIA, BOSQUE
+}
+

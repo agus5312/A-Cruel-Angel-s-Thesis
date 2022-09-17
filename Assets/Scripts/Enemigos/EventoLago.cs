@@ -13,12 +13,18 @@ public class EventoLago : MonoBehaviour
     [SerializeField] GameObject contEnemigos;
     InformacionGuardar infoPartida;
 
+    [SerializeField] AudioClip correr;
+    [SerializeField] AudioClip gruñir;
+
+    AudioSource sonid;
+
     void Start()
     {
         player = FindObjectOfType<CambiaItems>().gameObject.transform;
         infoPartida = FindObjectOfType<InformacionGuardar>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        sonid = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -38,8 +44,12 @@ public class EventoLago : MonoBehaviour
         infoPartida.froggers = true;
         transform.LookAt(player);
         anim.SetTrigger("Defender");
+        sonid.clip = gruñir;
+        sonid.Play();
         yield return new WaitForSeconds(2);
         anim.SetTrigger("Caminar");
+        sonid.clip = correr;
+        sonid.Play();
         agent.SetDestination(pos);
         yield return new WaitForSeconds(15);
         contEnemigos.SetActive(true);
