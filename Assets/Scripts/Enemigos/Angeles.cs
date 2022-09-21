@@ -6,13 +6,14 @@ using UnityEngine.AI;
 public class Angeles : MonoBehaviour
 {
     NavMeshAgent agent;
-    public Transform player;
+    Transform player;
     bool atacar;
 
     private void Start()
     {
         atacar = false;
         agent = GetComponent<NavMeshAgent>();
+        player = FindObjectOfType<CambiaItems>().transform;
     }
     private void Update()
     {
