@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Controlador : MonoBehaviour
+public class GameController : MonoBehaviour
 {
-    [SerializeField] GameObject PanelOpciones;
+    [SerializeField] GameObject menuPausa;
     [SerializeField] GameObject estaSeguro;
     [SerializeField] GameObject Sound;
     [SerializeField] GameObject Brillo;
@@ -13,16 +13,28 @@ public class Controlador : MonoBehaviour
     [SerializeField] GameObject BrilloButton;
     [SerializeField] GameObject BackButton;
     [SerializeField] GameObject BackSliderB;
-    public void Opciones()
-    {
-        PanelOpciones.SetActive(true);
-    }
-    public void VolverdeOpcionesaMenu()
-    {
-        PanelOpciones.SetActive(false);
-    }
+    [SerializeField] GameObject BackToMenuB;
+    [SerializeField] GameObject QuitButton;
 
-    public void InGame(string name)
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            BotonPausa();
+        }
+    }
+    public void BotonPausa()
+    {
+        menuPausa.SetActive(true);
+        Time.timeScale = 0;
+    }
+    public void BotonReplay()
+    {
+        menuPausa.SetActive(false);
+        Time.timeScale = 1;
+    }
+    public void ToInicio(string name)
     {
         SceneManager.LoadScene(name);
     }
@@ -42,33 +54,33 @@ public class Controlador : MonoBehaviour
     public void AparecerSliderSound()
     {
         Sound.SetActive(true);
-        SoundButton.SetActive(false);
-        BrilloButton.SetActive(false);
-        BackButton.SetActive(false);
         BackSliderB.SetActive(true);
+        BackToMenuB.SetActive(false);
+        QuitButton.SetActive(false);
+        SoundButton.SetActive(false);
     }
-    public void DesaparecerSliderSound ()
+    public void DesaparecerSliderSound()
     {
         Sound.SetActive(false);
         SoundButton.SetActive(true);
-        BrilloButton.SetActive(true);
-        BackButton.SetActive(true);
         BackSliderB.SetActive(false);
+        QuitButton.SetActive(true);
+        SoundButton.SetActive(true);
     }
     public void AparecerSliderBrillo()
     {
         Brillo.SetActive(true);
-        SoundButton.SetActive(false);
         BrilloButton.SetActive(false);
-        BackButton.SetActive(false);
         BackSliderB.SetActive(true);
+        QuitButton.SetActive(false);
+        SoundButton.SetActive(false);
     }
     public void DesaparecerSliderBrillo()
     {
         Brillo.SetActive(false);
-        SoundButton.SetActive(true);
         BrilloButton.SetActive(true);
-        BackButton.SetActive(true);
         BackSliderB.SetActive(false);
+        QuitButton.SetActive(true);
+        SoundButton.SetActive(true); 
     }
 }

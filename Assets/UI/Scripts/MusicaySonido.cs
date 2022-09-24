@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class MusicaySonido : MonoBehaviour
 {
-    [Header("Ambiente")]
+    /*[Header("Ambiente")]
     [SerializeField] AudioSource audioSourceAmbiente;
-    [Space]
+    [Space]*/
     [Header("Botones")]
     [SerializeField] AudioSource audioSourceBotones;
 
 
-    public void Musicalizar()
-    {
-        audioSourceAmbiente.Play();
-    }
+    //public void Musicalizar()
+    //{
+        //audioSourceAmbiente.Play();
+    //}
     public void SonidoBotones()
     {
         audioSourceBotones.Play();
