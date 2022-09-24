@@ -14,10 +14,6 @@ public class LogicaBrillo : MonoBehaviour
         panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, slider.value);
     }
 
-    void Update()
-    {
-
-    }
     public void CambiarelSlider(float valor)
     {
         sliderValue = valor;
