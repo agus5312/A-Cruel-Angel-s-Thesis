@@ -28,11 +28,15 @@ public class GameController : MonoBehaviour
     {
         menuPausa.SetActive(true);
         Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     public void BotonReplay()
     {
         menuPausa.SetActive(false);
         Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void ToInicio(string name)
     {
