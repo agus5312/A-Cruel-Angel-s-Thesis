@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour
     public void DesaparecerSliderSound()
     {
         Sound.SetActive(false);
-        SoundButton.SetActive(true);
+        BackToMenuB.SetActive(true);
         BackSliderB.SetActive(false);
         QuitButton.SetActive(true);
         SoundButton.SetActive(true);
@@ -74,10 +74,10 @@ public class GameController : MonoBehaviour
     public void AparecerSliderBrillo()
     {
         Brillo.SetActive(true);
-        BrilloButton.SetActive(false);
+        BackToMenuB.SetActive(false);
         BackSliderB.SetActive(true);
         QuitButton.SetActive(false);
-        SoundButton.SetActive(false);
+        BrilloButton.SetActive(false);
     }
     public void DesaparecerSliderBrillo()
     {
@@ -85,6 +85,6 @@ public class GameController : MonoBehaviour
         BrilloButton.SetActive(true);
         BackSliderB.SetActive(false);
         QuitButton.SetActive(true);
-        SoundButton.SetActive(true); 
+        BackToMenuB.SetActive(true); 
     }
 }
