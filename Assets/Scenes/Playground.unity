@@ -22703,10 +22703,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 179.37166
       objectReference: {fileID: 0}
-    - target: {fileID: 6187107733735829068, guid: 55567ad8c3951524d8d6ea0502d1213a, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4448f46347fca134589b61efe02bafef, type: 3}
     - target: {fileID: 6229755567408284624, guid: 55567ad8c3951524d8d6ea0502d1213a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 1.9672408
@@ -24275,6 +24271,10 @@ PrefabInstance:
     - target: {fileID: 8795563116246273656, guid: 171a0ab2ab68c72439190d88de819dd3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9050730503521305928, guid: 171a0ab2ab68c72439190d88de819dd3, type: 3}
+      propertyPath: type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9050730503521305929, guid: 171a0ab2ab68c72439190d88de819dd3, type: 3}
       propertyPath: indicador
