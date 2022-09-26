@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 7ee70e46232466040b73beffe26d7484
+guid: f86f3f8d27d38d148b7ce1a64e3bfaab
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Totalitario
+    second: {fileID: 2100000, guid: 3d3f943c52654ed4db499db6930724a8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
