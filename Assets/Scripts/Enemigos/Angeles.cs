@@ -21,15 +21,17 @@ public class Angeles : MonoBehaviour
         {
             agent.SetDestination(player.position);
         }
+       
     }
     private void OnBecameVisible()
     {
         atacar = false;
-        agent.SetDestination(transform.position);
+        agent.isStopped = true;
     }
 
     private void OnBecameInvisible()
     {
         atacar = true;
+        agent.isStopped = false;
     }
 }

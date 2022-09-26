@@ -19,5 +19,6 @@ public class LogicaBrillo : MonoBehaviour
         sliderValue = valor;
         PlayerPrefs.SetFloat("brillo", sliderValue);
         panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.g, panelBrillo.color.b, slider.value);
+        PlayerPrefs.Save();
     }
 }
