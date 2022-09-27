@@ -6723,6 +6723,7 @@ MonoBehaviour:
   - {fileID: 1147521116}
   - {fileID: 98887991}
   moon: {fileID: 1296907719}
+  "puertaCaba\xF1a": {fileID: 1832777614}
 --- !u!1 &841518896
 GameObject:
   m_ObjectHideFlags: 0
@@ -20093,6 +20094,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8795563116246273656, guid: 171a0ab2ab68c72439190d88de819dd3, type: 3}
   m_PrefabInstance: {fileID: 9050730504226820088}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &543450653475225985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828381054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a952d33146ee3a4b92442a649314a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &543450653633275334 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5097965903716486265, guid: 8ea27cf300ac2f940bbd1251946db055, type: 3}

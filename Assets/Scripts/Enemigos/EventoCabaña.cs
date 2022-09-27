@@ -7,11 +7,26 @@ public class EventoCabaña : MonoBehaviour
     public GameObject[] enemigos;
     int oleada = 0;
     [SerializeField] Moon moon;
+    CambiaItems player;
+    [SerializeField] Animator puertaCabaña;
 
     public void Oleada()
     {
         if(oleada == 0)
         {
+            player = FindObjectOfType<CambiaItems>();
+            foreach (TipoLllave llave in player.llaves)
+            {
+                if (llave == TipoLllave.CABAÑA)
+                {
+                    player.llaves.Remove(llave);
+                    break;
+                }
+            }
+            if (puertaCabaña.GetCurrentAnimatorStateInfo(0).IsName("PuertaAbierta"))
+            {
+                puertaCabaña.SetTrigger("Cambio");
+            }
             moon.Bajar();
         }
         oleada++;
@@ -44,6 +59,7 @@ public class EventoCabaña : MonoBehaviour
         else
         {
             Fin();
+            player.llaves.Add(TipoLllave.CABAÑA);
         }
     }
 
