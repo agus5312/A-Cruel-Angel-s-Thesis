@@ -15,12 +15,15 @@ public class EventoCabaña : MonoBehaviour
         if(oleada == 0)
         {
             player = FindObjectOfType<CambiaItems>();
-            foreach (TipoLllave llave in player.llaves)
+            if(player.llaves.Count > 0)
             {
-                if (llave == TipoLllave.CABAÑA)
+                foreach (TipoLllave llave in player.llaves)
                 {
-                    player.llaves.Remove(llave);
-                    break;
+                    if (llave == TipoLllave.CABAÑA)
+                    {
+                        player.llaves.Remove(llave);
+                        break;
+                    }
                 }
             }
             if (puertaCabaña.GetCurrentAnimatorStateInfo(0).IsName("PuertaAbierta"))
@@ -63,7 +66,7 @@ public class EventoCabaña : MonoBehaviour
         }
     }
 
-    IEnumerator Time()
+    public IEnumerator Time()
     {
         yield return new WaitForSeconds(6.5f);
         Oleada();

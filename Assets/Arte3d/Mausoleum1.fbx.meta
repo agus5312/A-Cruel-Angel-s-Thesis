@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f86f3f8d27d38d148b7ce1a64e3bfaab
+guid: 1c758b3c47e63174681d3dd8b1ffffd5
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Totalitario
-    second: {fileID: 2100000, guid: 3d3f943c52654ed4db499db6930724a8, type: 2}
+      name: Total
+    second: {fileID: 2100000, guid: 33276c84c79a31f43918c988ffef7dcc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
