@@ -60,4 +60,22 @@ public class Angeles : MonoBehaviour
             agent.isStopped = false;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(this.enabled && other.GetComponent<CambiaItems>())
+        {
+            MuerteAngeles muerte = FindObjectOfType<MuerteAngeles>();
+            muerte.Muerte();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (this)
+        {
+            agent.isStopped = true;
+            audi.Stop();
+        }
+    }
 }

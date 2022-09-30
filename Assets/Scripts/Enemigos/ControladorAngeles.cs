@@ -39,6 +39,18 @@ public class ControladorAngeles : MonoBehaviour
                     grupo4[i].enabled = true;
                 }
                 break;
+            case 5:
+                for (int i = 0; i < grupo5.Length; i++)
+                {
+                    grupo5[i].enabled = true;
+                }
+                break;
+            case 6:
+                for (int i = 0; i < grupo6.Length; i++)
+                {
+                    grupo6[i].enabled = true;
+                }
+                break;
         }
     }
 
