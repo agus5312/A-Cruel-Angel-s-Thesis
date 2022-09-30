@@ -14,7 +14,5 @@ public class InformacionGuardar : MonoBehaviour
     public List<int> aDesactivar;
     public List<TipoLllave> llaves;
 
-    public int pilas;
     public int tiros;
-    public float batRestante;
 }

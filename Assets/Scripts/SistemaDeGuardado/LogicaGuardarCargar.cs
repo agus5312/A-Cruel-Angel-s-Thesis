@@ -27,9 +27,9 @@ public class LogicaGuardarCargar : MonoBehaviour
         if (player)
         {
             player.transform.position = informacionGuardar.posplayer;
-            linterna.pilas = informacionGuardar.pilas;
+            //linterna.pilas = informacionGuardar.pilas;
             camara.tiros = informacionGuardar.tiros;
-            linterna.bateria = informacionGuardar.batRestante;
+            //linterna.bateria = informacionGuardar.batRestante;
         }
 
 
@@ -75,9 +75,9 @@ public class LogicaGuardarCargar : MonoBehaviour
     {
         informacionGuardar.posplayer = new Vector3(190, 0.4f, -370);
 
-        informacionGuardar.pilas = 0;
+        //informacionGuardar.pilas = 0;
         informacionGuardar.tiros = 4;
-        informacionGuardar.batRestante = 1;
+        //informacionGuardar.batRestante = 1;
 
         informacionGuardar.froggers = false;
         informacionGuardar.angeles = false;
@@ -96,9 +96,9 @@ public class LogicaGuardarCargar : MonoBehaviour
         if (player)
         {
             informacionGuardar.posplayer = player.transform.position;
-            informacionGuardar.pilas = linterna.pilas;
+            //informacionGuardar.pilas = linterna.pilas;
             informacionGuardar.tiros = camara.tiros;
-            informacionGuardar.batRestante = linterna.bateria;
+            //informacionGuardar.batRestante = linterna.bateria;
         }
         else Debug.LogWarning("Falta Player");
 
@@ -110,9 +110,9 @@ public class LogicaGuardarCargar : MonoBehaviour
         if (player)
         {
             informacionGuardar.posplayer = pos;
-            informacionGuardar.pilas = linterna.pilas;
+            //informacionGuardar.pilas = linterna.pilas;
             informacionGuardar.tiros = camara.tiros;
-            informacionGuardar.batRestante = linterna.bateria;
+            //informacionGuardar.batRestante = linterna.bateria;
         }
         else Debug.LogWarning("Falta Player");
 

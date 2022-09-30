@@ -87,18 +87,18 @@ public class CambiaItems : MonoBehaviour
                             contenido.text = hitInfo.collider.GetComponent<Notas>().contenido;
                             nota.SetActive(true);
                             break;
-                        case TipoObjeto.BATERIA:
-                            linterna.GetComponent<Linterna>().MasPilas();
-                            foreach (GameObject item in logica.objetos)
-                            {
-                                if (hitInfo.collider.gameObject == item)
-                                {
-                                    informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
-                                    break;
-                                }
-                            }
-                            hitInfo.collider.gameObject.SetActive(false);
-                            break;
+                        //case tipoobjeto.bateria:
+                        //    linterna.getcomponent<linterna>().maspilas();
+                        //    foreach (gameobject item in logica.objetos)
+                        //    {
+                        //        if (hitinfo.collider.gameobject == item)
+                        //        {
+                        //            informacionguardar.adesactivar.add(logica.objetos.indexof(item));
+                        //            break;
+                        //        }
+                        //    }
+                        //    hitinfo.collider.gameobject.setactive(false);
+                        //    break;
 
                         case TipoObjeto.ROLLO:
                             camara.GetComponent<Flash>().AumentarTiros();

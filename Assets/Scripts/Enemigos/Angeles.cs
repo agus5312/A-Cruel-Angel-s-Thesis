@@ -74,7 +74,7 @@ public class Angeles : MonoBehaviour
     {
         if (this)
         {
-            agent.isStopped = true;
+            if(agent) agent.isStopped = true;
             audi.Stop();
         }
     }
