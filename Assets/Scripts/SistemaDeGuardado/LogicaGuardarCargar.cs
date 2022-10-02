@@ -12,8 +12,8 @@ public class LogicaGuardarCargar : MonoBehaviour
 
     [SerializeField] GameObject froggers;
     [SerializeField] GameObject eventoFroggers;
+    [SerializeField] GameObject eventocabaña;
     [SerializeField] GameObject sombras;
-    [SerializeField] GameObject eventolago;
     [SerializeField] GameObject angeles;
 
     public List<GameObject> objetos;
@@ -98,16 +98,16 @@ public class LogicaGuardarCargar : MonoBehaviour
 
     public void GuardarInformacion()
     {
-        if (player)
-        {
-            informacionGuardar.posplayer = player.transform.position;
-            //informacionGuardar.pilas = linterna.pilas;
-            informacionGuardar.tiros = camara.tiros;
-            //informacionGuardar.batRestante = linterna.bateria;
-        }
-        else Debug.LogWarning("Falta Player");
+            if (player)
+            {
+                informacionGuardar.posplayer = player.transform.position;
+                //informacionGuardar.pilas = linterna.pilas;
+                informacionGuardar.tiros = camara.tiros;
+                //informacionGuardar.batRestante = linterna.bateria;
+            }
+            else Debug.LogWarning("Falta Player");
 
-        GuardarPartida(informacionGuardar);
+            GuardarPartida(informacionGuardar);
     }
 
     public void GuardarInformacionCambioEscena(Vector3 pos)

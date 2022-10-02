@@ -17,12 +17,23 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject QuitButton;
     [SerializeField] GameObject SaveButton;
 
+    bool pausa = false;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            BotonPausa();
+            if (pausa)
+            {
+                BotonReplay();
+                pausa = false;
+            }
+            else
+            {
+                BotonPausa();
+                pausa = true;
+            }
         }
     }
     public void BotonPausa()

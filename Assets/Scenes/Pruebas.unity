@@ -2357,6 +2357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7963c6425b3d2b4d823b3cacda6f06c, type: 3}
+--- !u!1 &142469543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3471495723186449854, guid: b7963c6425b3d2b4d823b3cacda6f06c, type: 3}
+  m_PrefabInstance: {fileID: 142469542}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &151338419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19397,8 +19402,25 @@ MonoBehaviour:
   linterna: {fileID: 249121234}
   froggers: {fileID: 1687202407}
   eventoFroggers: {fileID: 1687202407}
+  "eventocaba\xF1a": {fileID: 0}
+  sombras: {fileID: 0}
   angeles: {fileID: 851572009}
-  objetos: []
+  objetos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 142469543}
 --- !u!114 &908905976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19412,7 +19434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   froggers: 0
-  angeles: 0
+  sombras: 0
+  "eventocaba\xF1a": 0
   linterna: 0
   camara: 0
   posplayer: {x: 0, y: 0, z: 0}
