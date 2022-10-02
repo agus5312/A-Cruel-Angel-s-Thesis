@@ -11,7 +11,6 @@ public class DisparadorEventoCabaña : MonoBehaviour
         if (evento)
         {
             evento.Oleada();
-
         }
     }
 }

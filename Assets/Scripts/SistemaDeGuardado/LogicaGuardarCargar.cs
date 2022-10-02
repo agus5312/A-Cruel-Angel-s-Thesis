@@ -12,6 +12,8 @@ public class LogicaGuardarCargar : MonoBehaviour
 
     [SerializeField] GameObject froggers;
     [SerializeField] GameObject eventoFroggers;
+    [SerializeField] GameObject sombras;
+    [SerializeField] GameObject eventolago;
     [SerializeField] GameObject angeles;
 
     public List<GameObject> objetos;
@@ -38,9 +40,13 @@ public class LogicaGuardarCargar : MonoBehaviour
             froggers.SetActive(true);
             eventoFroggers.SetActive(false);
         }
-        if (informacionGuardar.angeles)
+        if (informacionGuardar.eventocabaña)
         {
-            angeles.SetActive(true);
+            eventoFroggers.SetActive(false);
+        }
+        if (informacionGuardar.sombras)
+        {
+            eventoFroggers.SetActive(false);
         }
         if (informacionGuardar.linterna)
         {
@@ -80,7 +86,6 @@ public class LogicaGuardarCargar : MonoBehaviour
         //informacionGuardar.batRestante = 1;
 
         informacionGuardar.froggers = false;
-        informacionGuardar.angeles = false;
 
         informacionGuardar.linterna = false;
         informacionGuardar.camara = false;

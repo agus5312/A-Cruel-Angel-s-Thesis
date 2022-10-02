@@ -5,7 +5,8 @@ using UnityEngine;
 public class InformacionGuardar : MonoBehaviour
 {
     public bool froggers;
-    public bool angeles;
+    public bool sombras;
+    public bool eventocabaña;
 
     public bool linterna;
     public bool camara;
