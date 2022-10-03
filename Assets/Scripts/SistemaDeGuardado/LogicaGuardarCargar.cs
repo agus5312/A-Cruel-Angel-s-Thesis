@@ -14,9 +14,9 @@ public class LogicaGuardarCargar : MonoBehaviour
     [SerializeField] GameObject eventoFroggers;
     [SerializeField] GameObject eventocabaña;
     [SerializeField] GameObject sombras;
-    [SerializeField] GameObject angeles;
 
     public List<GameObject> objetos;
+    public List<GameObject> checkpoints;
 
     private void Start()
     {
@@ -42,11 +42,11 @@ public class LogicaGuardarCargar : MonoBehaviour
         }
         if (informacionGuardar.eventocabaña)
         {
-            eventoFroggers.SetActive(false);
+            eventocabaña.SetActive(false);
         }
         if (informacionGuardar.sombras)
         {
-            eventoFroggers.SetActive(false);
+            sombras.SetActive(false);
         }
         if (informacionGuardar.linterna)
         {
@@ -59,6 +59,12 @@ public class LogicaGuardarCargar : MonoBehaviour
         foreach (TipoLllave llave in informacionGuardar.llaves)
         {
             cambiaItems.llaves.Add(llave);
+        }
+
+        foreach (int check in informacionGuardar.checkpoints)
+        {
+            if (checkpoints[check])
+                checkpoints[check].SetActive(false);
         }
 
         foreach (int objeto in informacionGuardar.aDesactivar)
@@ -86,6 +92,8 @@ public class LogicaGuardarCargar : MonoBehaviour
         //informacionGuardar.batRestante = 1;
 
         informacionGuardar.froggers = false;
+        informacionGuardar.sombras = false;
+        informacionGuardar.eventocabaña = false;
 
         informacionGuardar.linterna = false;
         informacionGuardar.camara = false;
@@ -96,30 +104,24 @@ public class LogicaGuardarCargar : MonoBehaviour
         GuardarPartida(informacionGuardar);
     }
 
-    public void GuardarInformacion()
+    public void GuardarInformacion(Vector3 pos)
     {
-            if (player)
-            {
-                informacionGuardar.posplayer = player.transform.position;
-                //informacionGuardar.pilas = linterna.pilas;
-                informacionGuardar.tiros = camara.tiros;
-                //informacionGuardar.batRestante = linterna.bateria;
-            }
-            else Debug.LogWarning("Falta Player");
-
-            GuardarPartida(informacionGuardar);
-    }
-
-    public void GuardarInformacionCambioEscena(Vector3 pos)
-    {
-        if (player)
-        {
+            
             informacionGuardar.posplayer = pos;
             //informacionGuardar.pilas = linterna.pilas;
             informacionGuardar.tiros = camara.tiros;
             //informacionGuardar.batRestante = linterna.bateria;
-        }
-        else Debug.LogWarning("Falta Player");
+
+            GuardarPartida(informacionGuardar);
+    }
+
+    public void GuardarInformacionCambioEscena(Vector3 pos, string escena)
+    {
+        informacionGuardar.posplayer = pos;
+        //informacionGuardar.pilas = linterna.pilas;
+        informacionGuardar.tiros = camara.tiros;
+        //informacionGuardar.batRestante = linterna.bateria;
+        informacionGuardar.escena = escena;
 
         GuardarPartida(informacionGuardar);
     }

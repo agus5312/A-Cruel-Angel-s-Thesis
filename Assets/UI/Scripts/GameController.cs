@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        PlayerPrefs.Save();
     }
     public void ToInicio(string name)
     {

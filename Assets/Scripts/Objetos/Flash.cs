@@ -9,10 +9,12 @@ public class Flash : MonoBehaviour
     public GameObject texto;
     public int tiros = 4;
     public Text cantidad;
+    AudioSource audi;
     void Start()
     {
         flash.SetActive(false);
         cantidad.text = tiros.ToString();
+        audi = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -32,6 +34,7 @@ public class Flash : MonoBehaviour
     IEnumerator tiempo()
     {
         flash.SetActive(true);
+        audi.Play();
         yield return new WaitForSeconds(0.1f);
         flash.SetActive(false); 
     }
@@ -43,6 +46,7 @@ public class Flash : MonoBehaviour
     }
     private void OnDisable()
     {
-        texto.SetActive(false);
+        if(texto)
+            texto.SetActive(false);
     }
 }

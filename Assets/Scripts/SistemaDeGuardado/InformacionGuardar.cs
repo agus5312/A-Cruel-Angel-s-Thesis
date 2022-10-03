@@ -8,11 +8,14 @@ public class InformacionGuardar : MonoBehaviour
     public bool sombras;
     public bool eventocabaña;
 
+    public string escena;
+
     public bool linterna;
     public bool camara;
     public Vector3 posplayer;
 
     public List<int> aDesactivar;
+    public List<int> checkpoints;
     public List<TipoLllave> llaves;
 
     public int tiros;

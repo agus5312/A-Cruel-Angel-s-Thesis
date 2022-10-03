@@ -9,6 +9,9 @@ public class EventoCabaña : MonoBehaviour
     [SerializeField] Moon moon;
     CambiaItems player;
     [SerializeField] Animator puertaCabaña;
+    LogicaGuardarCargar logica;
+    InformacionGuardar informacion;
+    Vector3 pos;
 
     public void Oleada()
     {
@@ -63,6 +66,12 @@ public class EventoCabaña : MonoBehaviour
         {
             Fin();
             player.llaves.Add(TipoLllave.CABAÑA);
+
+            logica = FindObjectOfType<LogicaGuardarCargar>();
+            informacion = FindObjectOfType<InformacionGuardar>();
+
+            informacion.eventocabaña = true;
+            logica.GuardarInformacion(pos);
         }
     }
 

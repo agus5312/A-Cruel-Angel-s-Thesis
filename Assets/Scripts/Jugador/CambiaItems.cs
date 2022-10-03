@@ -19,6 +19,8 @@ public class CambiaItems : MonoBehaviour
 
     InformacionGuardar informacionGuardar;
     LogicaGuardarCargar logica;
+    CartelIndicador cartel;
+
     StarterAssets.FirstPersonController controlador;
     StarterAssets.StarterAssetsInputs imputs;
 
@@ -30,6 +32,7 @@ public class CambiaItems : MonoBehaviour
     {
         informacionGuardar = FindObjectOfType<InformacionGuardar>();
         logica = FindObjectOfType<LogicaGuardarCargar>();
+        cartel = FindObjectOfType<CartelIndicador>();
         controlador = FindObjectOfType<StarterAssets.FirstPersonController>();
         imputs = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
         pasos = GetComponent<AudioSource>();
@@ -137,6 +140,7 @@ public class CambiaItems : MonoBehaviour
 
                         case TipoObjeto.LLAVE:
                             llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
+                            cartel.Aparecer(hitInfo.collider.gameObject.GetComponent<Llave>().texto);
                             informacionGuardar.llaves.Add(hitInfo.collider.gameObject.GetComponent<Llave>().type);
                             foreach (GameObject item in logica.objetos)
                             {

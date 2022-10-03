@@ -8,6 +8,7 @@ public class Sombras : MonoBehaviour
     float distancia = 0;
     int i = 0;
     public Vector3[] sombrasPos;
+    InformacionGuardar informacion;
 
     private void Start()
     {
@@ -30,6 +31,8 @@ public class Sombras : MonoBehaviour
         i++; 
         if (i == sombrasPos.Length)
         {
+            informacion = FindObjectOfType<InformacionGuardar>();
+            informacion.sombras = true;
             gameObject.SetActive(false);
         }
         else

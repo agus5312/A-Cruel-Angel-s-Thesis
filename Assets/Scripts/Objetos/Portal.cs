@@ -14,7 +14,7 @@ public class Portal : MonoBehaviour
     }
     public void Cambio()
     {
-        logica.GuardarInformacionCambioEscena(puntoAparicion);
+        logica.GuardarInformacionCambioEscena(puntoAparicion, scene);
         SceneManager.LoadScene(scene);
     }
 }

@@ -7,13 +7,17 @@ public class Linterna : MonoBehaviour
 {
     public GameObject luz;
     bool encendida;
+    [SerializeField] AudioClip enc;
+    [SerializeField] AudioClip apag;
+    AudioSource audi;
+
     //public GameObject maracador;
     //public GameObject contador;
     //public Slider slider;
     //public Text cantidadpilas;
     //public float bateria = 1;
     //public int pilas = 0;
-    
+
 
     private void Start()
     {
@@ -21,6 +25,7 @@ public class Linterna : MonoBehaviour
         //contador.SetActive(true);
         luz.SetActive(false);
         encendida = false;
+        audi = GetComponent<AudioSource>();
         //slider.value = bateria;
         //cantidadpilas.text = pilas.ToString();
     }
@@ -45,12 +50,15 @@ public class Linterna : MonoBehaviour
             {
                 luz.SetActive(false);
                 encendida = false;
-                
+                audi.clip = apag;
+                audi.Play();
             }
             else
             {
                 luz.SetActive(true);
                 encendida = true;
+                audi.clip = enc;
+                audi.Play();
             }
         }
 
