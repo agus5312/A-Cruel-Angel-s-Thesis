@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Angeles : MonoBehaviour
 {
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     Transform player;
     bool atacar;
     AudioSource audi;
@@ -74,7 +74,7 @@ public class Angeles : MonoBehaviour
     {
         if (this)
         {
-            if(agent) agent.isStopped = true;
+            //if(agent) agent.isStopped = true;
             audi.Stop();
         }
     }

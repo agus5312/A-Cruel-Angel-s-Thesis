@@ -62,30 +62,36 @@ public class ControladorAngeles : MonoBehaviour
                 for (int i = 0; i < grupo1.Length; i++)
                 {
                     grupo1[i].enabled = false;
+                    grupo1[i].agent.isStopped = true;
                 }
                 for (int i = 0; i < grupo2.Length; i++)
                 {
                     grupo2[i].enabled = false;
+                    grupo2[i].agent.isStopped = true;
                 }
                 for (int i = 0; i < grupo3.Length; i++)
                 {
                     grupo3[i].enabled = false;
+                    grupo3[i].agent.isStopped = true;
                 }
                 for (int i = 0; i < grupo4.Length; i++)
                 {
                     grupo4[i].enabled = false;
+                    grupo4[i].agent.isStopped = true;
                 }
                 break;
             case 2:
                 for (int i = 0; i < grupo5.Length; i++)
                 {
                     grupo5[i].enabled = false;
+                    grupo5[i].agent.isStopped = true;
                 }
                 break;
             case 3:
                 for (int i = 0; i < grupo6.Length; i++)
                 {
                     grupo6[i].enabled = false;
+                    grupo6[i].agent.isStopped = true;
                 }
                 break;
         }
