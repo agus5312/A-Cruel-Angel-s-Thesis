@@ -7,6 +7,7 @@ public class InformacionGuardar : MonoBehaviour
     public bool froggers;
     public bool sombras;
     public bool eventocabaña;
+    public bool cinematicaInicial;
 
     public string escena;
 

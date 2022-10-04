@@ -14,11 +14,12 @@ public class LogicaGuardarCargar : MonoBehaviour
     [SerializeField] GameObject eventoFroggers;
     [SerializeField] GameObject eventocabaña;
     [SerializeField] GameObject sombras;
+    [SerializeField] GameObject cinematicaInicial;
 
     public List<GameObject> objetos;
     public List<GameObject> checkpoints;
 
-    private void Start()
+    private void Awake()
     {
         informacionGuardar = FindObjectOfType<InformacionGuardar>();
         CargarInformacion();
@@ -34,7 +35,10 @@ public class LogicaGuardarCargar : MonoBehaviour
             //linterna.bateria = informacionGuardar.batRestante;
         }
 
-
+        if (informacionGuardar.cinematicaInicial)
+        {
+            cinematicaInicial.SetActive(false);
+        }
         if (informacionGuardar.froggers)
         {
             froggers.SetActive(true);
@@ -69,7 +73,7 @@ public class LogicaGuardarCargar : MonoBehaviour
 
         foreach (int objeto in informacionGuardar.aDesactivar)
         {
-            if(objetos[objeto])
+            if (objetos[objeto])
                 objetos[objeto].SetActive(false);
         }
     }
@@ -94,6 +98,7 @@ public class LogicaGuardarCargar : MonoBehaviour
         informacionGuardar.froggers = false;
         informacionGuardar.sombras = false;
         informacionGuardar.eventocabaña = false;
+        informacionGuardar.cinematicaInicial = false;
 
         informacionGuardar.linterna = false;
         informacionGuardar.camara = false;
