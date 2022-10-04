@@ -53,6 +53,7 @@ public class GameController : MonoBehaviour
     }
     public void ToInicio(string name)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(name);
     }
     public void panel()

@@ -13,6 +13,9 @@ public class Controlador : MonoBehaviour
     [SerializeField] GameObject BrilloButton;
     [SerializeField] GameObject BackButton;
     [SerializeField] GameObject BackSliderB;
+
+    InformacionGuardar informacion;
+
     public void Opciones()
     {
         PanelOpciones.SetActive(true);
@@ -22,9 +25,17 @@ public class Controlador : MonoBehaviour
         PanelOpciones.SetActive(false);
     }
 
-    public void InGame(string name)
+    public void InGame()
     {
-        SceneManager.LoadScene(name);
+        informacion = FindObjectOfType<InformacionGuardar>();
+        if(informacion.escena == "Pruebas")
+        {
+            SceneManager.LoadScene("Pruebas");
+        }
+        else
+        {
+            SceneManager.LoadScene("Playground");
+        }
     }
     public void panel()
     {

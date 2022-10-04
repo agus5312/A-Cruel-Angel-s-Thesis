@@ -98,8 +98,11 @@ public class LogicaGuardarCargar : MonoBehaviour
         informacionGuardar.linterna = false;
         informacionGuardar.camara = false;
 
+        informacionGuardar.escena = "Playground";
+
         informacionGuardar.aDesactivar.Clear();
         informacionGuardar.llaves.Clear();
+        informacionGuardar.checkpoints.Clear();
 
         GuardarPartida(informacionGuardar);
     }
