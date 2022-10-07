@@ -118,24 +118,32 @@ public class CambiaItems : MonoBehaviour
 
                         case TipoObjeto.PUERTA:
                             GameObject puerta = hitInfo.collider.gameObject;
+                            bool comprobar = true;
                             for (int i = 0; i < llaves.Count; i++)
                             {
                                 if (llaves[i] == puerta.GetComponent<Puertas>().tipo)
                                 {
                                     puerta.GetComponent<Puertas>().AbrirPuerta();
+                                    comprobar = false;
                                 }
                             }
+                            if(comprobar)
+                                cartel.Aparecer(puerta.GetComponent<Puertas>().texto);
                             break;
 
                         case TipoObjeto.PORTAL:
                             GameObject portal = hitInfo.collider.gameObject;
+                            bool comprobar2 = true;
                             for (int i = 0; i < llaves.Count; i++)
                             {
                                 if (llaves[i] == portal.GetComponent<Portal>().tipo)
                                 {
                                     portal.GetComponent<Portal>().Cambio();
+                                    comprobar = false;
                                 }
                             }
+                            if(comprobar2)
+                                cartel.Aparecer(portal.GetComponent<Portal>().texto);
                             break;
 
                         case TipoObjeto.LLAVE:

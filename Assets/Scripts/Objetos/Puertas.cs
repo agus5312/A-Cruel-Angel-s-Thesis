@@ -5,6 +5,7 @@ using UnityEngine;
 public class Puertas : MonoBehaviour
 {
     public TipoLllave tipo;
+    public string texto;
     Animator anim;
     [SerializeField] AudioClip abrir;
     [SerializeField] AudioClip cerrar;

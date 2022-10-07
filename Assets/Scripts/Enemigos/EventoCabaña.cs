@@ -13,12 +13,15 @@ public class EventoCabaña : MonoBehaviour
     InformacionGuardar informacion;
     Vector3 pos;
 
+    [SerializeField] GameObject frogger; 
+
     public void Oleada()
     {
         if(oleada == 0)
         {
             player = FindObjectOfType<CambiaItems>();
-            if(player.llaves.Count > 0)
+            frogger.SetActive(false);
+            if (player.llaves.Count > 0)
             {
                 foreach (TipoLllave llave in player.llaves)
                 {
@@ -72,6 +75,7 @@ public class EventoCabaña : MonoBehaviour
 
             informacion.eventocabaña = true;
             logica.GuardarInformacion(pos);
+            frogger.SetActive(true);
         }
     }
 

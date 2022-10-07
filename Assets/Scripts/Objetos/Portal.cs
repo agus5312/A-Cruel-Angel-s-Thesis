@@ -4,6 +4,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public TipoLllave tipo;
+    public string texto;
     [SerializeField] Vector3 puntoAparicion;
     LogicaGuardarCargar logica;
     [SerializeField] string scene;
