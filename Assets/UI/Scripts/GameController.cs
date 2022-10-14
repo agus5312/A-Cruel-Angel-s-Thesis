@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject BackSliderB;
     [SerializeField] GameObject BackToMenuB;
     [SerializeField] GameObject QuitButton;
-    [SerializeField] GameObject SaveButton;
+    //[SerializeField] GameObject SaveButton;
 
     bool pausa = false;
 
@@ -76,7 +76,7 @@ public class GameController : MonoBehaviour
         BackToMenuB.SetActive(false);
         QuitButton.SetActive(false);
         SoundButton.SetActive(false);
-        SaveButton.SetActive(false);
+        //SaveButton.SetActive(false);
     }
     public void DesaparecerSliderSound()
     {
@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour
         BackSliderB.SetActive(false);
         QuitButton.SetActive(true);
         SoundButton.SetActive(true);
-        SaveButton.SetActive(true);
+        //SaveButton.SetActive(true);
     }
     public void AparecerSliderBrillo()
     {
@@ -94,7 +94,7 @@ public class GameController : MonoBehaviour
         BackSliderB.SetActive(true);
         QuitButton.SetActive(false);
         BrilloButton.SetActive(false);
-        SaveButton.SetActive(false);
+        //SaveButton.SetActive(false);
     }
     public void DesaparecerSliderBrillo()
     {
@@ -103,6 +103,6 @@ public class GameController : MonoBehaviour
         BackSliderB.SetActive(false);
         QuitButton.SetActive(true);
         BackToMenuB.SetActive(true);
-        SaveButton.SetActive(true);
+        //SaveButton.SetActive(true);
     }
 }

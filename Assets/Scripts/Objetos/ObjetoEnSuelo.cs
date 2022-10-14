@@ -8,9 +8,9 @@ public class ObjetoEnSuelo : MonoBehaviour
     GameObject player;
     public TipoObjeto type;
 
-    private void Start()
+    private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = FindObjectOfType<CambiaItems>().gameObject;
     }
     private void OnMouseEnter()
     {

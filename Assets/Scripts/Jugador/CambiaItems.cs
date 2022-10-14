@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class CambiaItems : MonoBehaviour
 {
-    [SerializeField] GameObject menuPausa;
-    bool pausa;
     bool moviendose;
     public List<GameObject> objetos;
     int i;
@@ -37,7 +35,6 @@ public class CambiaItems : MonoBehaviour
         imputs = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
         pasos = GetComponent<AudioSource>();
 
-        pausa = false;
         i = 0;
         for (int a = 0; a < objetos.Count; a++)
         {
@@ -48,7 +45,6 @@ public class CambiaItems : MonoBehaviour
     {
         Pasos();
         Items();
-        Menu();
     }
 
     void Items()
@@ -224,29 +220,6 @@ public class CambiaItems : MonoBehaviour
         {
             pasos.clip = caminar;
             pasos.Play();
-        }
-    }
-
-    void Menu()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (pausa)
-            {
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Time.timeScale = 1f;
-                menuPausa.SetActive(false);
-                pausa = false;
-            }
-            else
-            {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                Time.timeScale = 0f;
-                menuPausa.SetActive(true);
-                pausa = true;
-            }
         }
     }
 }
