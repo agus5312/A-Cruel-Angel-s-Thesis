@@ -11,7 +11,8 @@ public class EventoCabaña : MonoBehaviour
     [SerializeField] Animator puertaCabaña;
     LogicaGuardarCargar logica;
     InformacionGuardar informacion;
-    Vector3 pos;
+    CartelIndicador cartel;
+    [SerializeField] Vector3 pos;
 
     [SerializeField] GameObject frogger; 
 
@@ -20,6 +21,7 @@ public class EventoCabaña : MonoBehaviour
         if(oleada == 0)
         {
             player = FindObjectOfType<CambiaItems>();
+            cartel = FindObjectOfType<CartelIndicador>();
             frogger.SetActive(false);
             if (player.llaves.Count > 0)
             {
@@ -37,6 +39,7 @@ public class EventoCabaña : MonoBehaviour
                 puertaCabaña.SetTrigger("Cambio");
             }
             moon.Bajar();
+            cartel.Aparecer("They are coming, check the windows");
         }
         oleada++;
         if (oleada < 5)
