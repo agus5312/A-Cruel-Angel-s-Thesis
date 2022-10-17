@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MuerteSombras : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class MuerteSombras : MonoBehaviour
 
     private IEnumerator resetear()
     {
+        oscuro.GetComponent<Image>().color = new Color(0, 0, 0, 255);
         yield return new WaitForSeconds(1);
         oscuro.SetActive(false);
         yield return new WaitForSeconds(5.5f);

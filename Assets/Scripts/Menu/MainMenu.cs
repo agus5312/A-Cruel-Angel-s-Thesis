@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
     GameObject luzLinterna;
     private void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         luzLinterna = GameObject.FindGameObjectWithTag("Luz");
         luzLinterna.SetActive(false);
         StartCoroutine(PrenderLinterna(Random.Range(0.1f, 1)));
