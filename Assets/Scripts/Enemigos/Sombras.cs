@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Sombras : MonoBehaviour
 {
-    GameObject player;
+    [SerializeField] GameObject player;
     float distancia = 0;
     int i = 0;
+    int a = 0;
     public Vector3[] sombrasPos;
+    public AudioClip[] sombrasSon;
     InformacionGuardar informacion;
+    AudioSource audi;
 
     private void Start()
     {
-        player = FindObjectOfType<CambiaItems>().gameObject;
+        audi = GetComponent<AudioSource>();
+        StartCoroutine(Voces());
     }
 
     private void Update()
@@ -37,5 +41,18 @@ public class Sombras : MonoBehaviour
         }
         else
             transform.position = sombrasPos[i];
+    }
+
+    IEnumerator Voces()
+    {
+        yield return new WaitForSeconds(10);
+        a++;
+        if (a == 5)
+        {
+            a = 0;
+        }
+        audi.clip = sombrasSon[a];
+        audi.Play();
+        StartCoroutine(Voces());
     }
 }

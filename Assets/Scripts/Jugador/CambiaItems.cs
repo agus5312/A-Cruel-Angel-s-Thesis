@@ -34,6 +34,8 @@ public class CambiaItems : MonoBehaviour
         controlador = FindObjectOfType<StarterAssets.FirstPersonController>();
         imputs = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
         pasos = GetComponent<AudioSource>();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         i = 0;
         for (int a = 0; a < objetos.Count; a++)

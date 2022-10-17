@@ -13,7 +13,8 @@ public class CinematicaInicial : MonoBehaviour
         direc = GetComponent<PlayableDirector>();
         informacion = FindObjectOfType<InformacionGuardar>();
         StartCoroutine(Inicio());
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     IEnumerator Inicio()

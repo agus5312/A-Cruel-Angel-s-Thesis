@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EventoLago : MonoBehaviour
 {
     NavMeshAgent agent;
-    Transform player;
+    [SerializeField] Transform player;
     bool noEmpezo = true;
     Animator anim;
     [SerializeField] Vector3 pos;

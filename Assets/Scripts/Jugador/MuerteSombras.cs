@@ -9,6 +9,8 @@ public class MuerteSombras : MonoBehaviour
     [SerializeField] GameObject oscuro;
     [SerializeField] GameObject[] desactivados;
     AudioSource audi;
+    [SerializeField] AudioClip voz;
+    [SerializeField] AudioClip cuello;
     public void Muerte()
     {
         audi = GetComponent<AudioSource>();
@@ -31,8 +33,12 @@ public class MuerteSombras : MonoBehaviour
         yield return new WaitForSeconds(5.5f);
         oscuro.SetActive(true);
         yield return new WaitForSeconds(1);
+        audi.clip = voz;
         audi.Play();
         oscuro.SetActive(true);
+        yield return new WaitForSeconds(1);
+        audi.clip = cuello;
+        audi.Play();
         yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene("Playground");
     }

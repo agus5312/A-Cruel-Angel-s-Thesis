@@ -13,16 +13,18 @@ public class EventoCabaña : MonoBehaviour
     InformacionGuardar informacion;
     CartelIndicador cartel;
     [SerializeField] Vector3 pos;
-
+    AudioSource musica;
     [SerializeField] GameObject frogger; 
 
     public void Oleada()
     {
         if(oleada == 0)
         {
+            musica = GetComponent<AudioSource>();
             player = FindObjectOfType<CambiaItems>();
             cartel = FindObjectOfType<CartelIndicador>();
             frogger.SetActive(false);
+            musica.Play();
             if (player.llaves.Count > 0)
             {
                 foreach (TipoLllave llave in player.llaves)
@@ -92,6 +94,7 @@ public class EventoCabaña : MonoBehaviour
     {
         print("FinEvento");
         moon.Subir();
+        musica.Stop();
     }
 
 
