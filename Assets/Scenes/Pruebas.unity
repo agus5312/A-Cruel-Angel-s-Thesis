@@ -39605,6 +39605,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 667179137}
     - target: {fileID: 6602788066529194055, guid: 1e25c03e4e4968e468b98b5b79b5d00f, type: 3}
+      propertyPath: correrIglesia
+      value: 
+      objectReference: {fileID: 8300000, guid: 41006016c5f6abc4194230430bbcbda6, type: 3}
+    - target: {fileID: 6602788066529194055, guid: 1e25c03e4e4968e468b98b5b79b5d00f, type: 3}
       propertyPath: pasosPersonaje
       value: 
       objectReference: {fileID: 159832327}
