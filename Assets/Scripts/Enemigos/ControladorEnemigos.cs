@@ -26,7 +26,7 @@ public class ControladorEnemigos : MonoBehaviour
     {
         if (firsttime)
         {
-            yield return new WaitForSeconds(25);
+            yield return new WaitForSeconds(15);
             if (pos.Count > 0)
             {
                 float cerca = 0;

@@ -120,9 +120,9 @@ public class Frogger2 : MonoBehaviour
         anim.SetInteger("Estado", 1);
         sonid.clip = correr;
         sonid.Play();
-        agent.speed = 9f;
+        agent.speed = 12f;
         yield return new WaitForSeconds(8);
-        agent.speed = 7f;
+        agent.speed = 14f;
         huir = false;
         gameObject.SetActive(false);
     }
