@@ -27,13 +27,7 @@ public class LogicaGuardarCargar : MonoBehaviour
         player = FindObjectOfType<CambiaItems>().gameObject;
         cambiaItems = FindObjectOfType<CambiaItems>();
 
-        if (player)
-        {
-            player.transform.position = informacionGuardar.posplayer;
-            //linterna.pilas = informacionGuardar.pilas;
-            camara.tiros = informacionGuardar.tiros;
-            //linterna.bateria = informacionGuardar.batRestante;
-        }
+        
 
         if (informacionGuardar.cinematicaInicial)
         {
@@ -75,6 +69,17 @@ public class LogicaGuardarCargar : MonoBehaviour
         {
             if (objetos[objeto])
                 objetos[objeto].SetActive(false);
+        }
+    }
+
+    private void Start()
+    {
+        if (player)
+        {
+            player.transform.position = informacionGuardar.posplayer;
+            //linterna.pilas = informacionGuardar.pilas;
+            camara.tiros = informacionGuardar.tiros;
+            //linterna.bateria = informacionGuardar.batRestante;
         }
     }
 
