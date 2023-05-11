@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,15 +24,9 @@ public class LogicaGuardarCargar : MonoBehaviour
         CargarInformacion();
 
         player = FindObjectOfType<CambiaItems>().gameObject;
-        cambiaItems = FindObjectOfType<CambiaItems>();
+        cambiaItems = player.GetComponent<CambiaItems>();
 
-        if (player)
-        {
-            player.transform.position = informacionGuardar.posplayer;
-            //linterna.pilas = informacionGuardar.pilas;
-            camara.tiros = informacionGuardar.tiros;
-            //linterna.bateria = informacionGuardar.batRestante;
-        }
+        
 
         if (informacionGuardar.cinematicaInicial)
         {
@@ -78,6 +71,18 @@ public class LogicaGuardarCargar : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (player)
+        {
+            if(informacionGuardar.posplayer != Vector3.zero)
+                player.transform.position = informacionGuardar.posplayer;
+            else
+                player.transform.position = new Vector3(190, 0.4f, -370);
+            camara.tiros = informacionGuardar.tiros;
+        }
+    }
+
     public static void GuardarPartida(MonoBehaviour informacion)
     {
         PlayerPrefs.SetString("infoPartida", JsonUtility.ToJson(informacion));
@@ -91,9 +96,7 @@ public class LogicaGuardarCargar : MonoBehaviour
     {
         informacionGuardar.posplayer = new Vector3(190, 0.4f, -370);
 
-        //informacionGuardar.pilas = 0;
         informacionGuardar.tiros = 4;
-        //informacionGuardar.batRestante = 1;
 
         informacionGuardar.froggers = false;
         informacionGuardar.sombras = false;
@@ -116,9 +119,7 @@ public class LogicaGuardarCargar : MonoBehaviour
     {
             
             informacionGuardar.posplayer = pos;
-            //informacionGuardar.pilas = linterna.pilas;
             informacionGuardar.tiros = camara.tiros;
-            //informacionGuardar.batRestante = linterna.bateria;
 
             GuardarPartida(informacionGuardar);
     }
@@ -126,9 +127,7 @@ public class LogicaGuardarCargar : MonoBehaviour
     public void GuardarInformacionCambioEscena(Vector3 pos, string escena)
     {
         informacionGuardar.posplayer = pos;
-        //informacionGuardar.pilas = linterna.pilas;
         informacionGuardar.tiros = camara.tiros;
-        //informacionGuardar.batRestante = linterna.bateria;
         informacionGuardar.escena = escena;
 
         GuardarPartida(informacionGuardar);

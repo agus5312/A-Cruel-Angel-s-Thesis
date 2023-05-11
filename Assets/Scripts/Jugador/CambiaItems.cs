@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -88,31 +87,7 @@ public class CambiaItems : MonoBehaviour
                             contenido.text = hitInfo.collider.GetComponent<Notas>().contenido;
                             nota.SetActive(true);
                             break;
-                        //case tipoobjeto.bateria:
-                        //    linterna.getcomponent<linterna>().maspilas();
-                        //    foreach (gameobject item in logica.objetos)
-                        //    {
-                        //        if (hitinfo.collider.gameobject == item)
-                        //        {
-                        //            informacionguardar.adesactivar.add(logica.objetos.indexof(item));
-                        //            break;
-                        //        }
-                        //    }
-                        //    hitinfo.collider.gameobject.setactive(false);
-                        //    break;
-
-                        case TipoObjeto.ROLLO:
-                            camara.GetComponent<Flash>().AumentarTiros();
-                            foreach (GameObject item in logica.objetos)
-                            {
-                                if (hitInfo.collider.gameObject == item)
-                                {
-                                    informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
-                                    break;
-                                }
-                            }
-                            hitInfo.collider.gameObject.SetActive(false);
-                            break;
+                        
 
                         case TipoObjeto.PUERTA:
                             GameObject puerta = hitInfo.collider.gameObject;
@@ -175,6 +150,7 @@ public class CambiaItems : MonoBehaviour
 
                         case TipoObjeto.CAMARA:
                             objetos.Add(camara);
+                            camara.GetComponent<Flash>().AumentarTiros();
                             informacionGuardar.camara = true;
                             foreach (GameObject item in logica.objetos)
                             {
