@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -87,7 +88,6 @@ public class CambiaItems : MonoBehaviour
                             contenido.text = hitInfo.collider.GetComponent<Notas>().contenido;
                             nota.SetActive(true);
                             break;
-<<<<<<< Updated upstream
                         //case tipoobjeto.bateria:
                         //    linterna.getcomponent<linterna>().maspilas();
                         //    foreach (gameobject item in logica.objetos)
@@ -113,9 +113,6 @@ public class CambiaItems : MonoBehaviour
                         //    }
                         //    hitInfo.collider.gameObject.SetActive(false);
                         //    break;
-=======
-                        
->>>>>>> Stashed changes
 
                         case TipoObjeto.PUERTA:
                             GameObject puerta = hitInfo.collider.gameObject;

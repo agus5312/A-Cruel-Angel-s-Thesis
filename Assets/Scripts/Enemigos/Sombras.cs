@@ -5,7 +5,6 @@ using UnityEngine;
 public class Sombras : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] Material mat;
     float distancia = 0;
     int i = 0;
     int a = 0;
@@ -13,23 +12,19 @@ public class Sombras : MonoBehaviour
     public AudioClip[] sombrasSon;
     InformacionGuardar informacion;
     AudioSource audi;
-    bool cambioActivo = false;
 
     private void Start()
     {
         audi = GetComponent<AudioSource>();
         StartCoroutine(Voces());
-        mat.SetFloat("_OutOffHeights",-2);
     }
 
     private void Update()
     {
         distancia = Vector3.Distance(transform.position, player.transform.position);
-        if (distancia < 15 && !cambioActivo)
+        if (distancia < 15)
         {
-            //Cambio();
-            StartCoroutine(Cambio1());
-            cambioActivo = true;
+            Cambio();
         }
         transform.LookAt(player.transform);
     }
@@ -47,31 +42,7 @@ public class Sombras : MonoBehaviour
         else
             transform.position = sombrasPos[i];
     }
-    IEnumerator Cambio1()
-    {
-        for (int i = 0; i < 40; i++)
-        {
-            yield return new WaitForSeconds(0.025f);
-            float a = mat.GetFloat("_OutOffHeights");
-            mat.SetFloat("_OutOffHeights", a + 0.075f);
-        }
-        i++;
-        if (i == sombrasPos.Length)
-        {
-            informacion = FindObjectOfType<InformacionGuardar>();
-            informacion.sombras = true;
-            gameObject.SetActive(false);
-        }
-        else
-            transform.position = sombrasPos[i];
-        for (int i = 0; i < 40; i++)
-        {
-            yield return new WaitForSeconds(0.025f);
-            float a = mat.GetFloat("_OutOffHeights");
-            mat.SetFloat("_OutOffHeights", a - 0.075f);
-        }
-        cambioActivo = false;
-    }
+
     IEnumerator Voces()
     {
         yield return new WaitForSeconds(10);

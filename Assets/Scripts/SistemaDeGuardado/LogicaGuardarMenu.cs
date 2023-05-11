@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LogicaGuardarMenu : MonoBehaviour
@@ -19,7 +21,9 @@ public class LogicaGuardarMenu : MonoBehaviour
     {
         informacionGuardar.posplayer = new Vector3(190, 0.4f, -370);
 
+        //informacionGuardar.pilas = 0;
         informacionGuardar.tiros = 4;
+        //informacionGuardar.batRestante = 1;
 
         informacionGuardar.froggers = false;
         informacionGuardar.sombras = false;

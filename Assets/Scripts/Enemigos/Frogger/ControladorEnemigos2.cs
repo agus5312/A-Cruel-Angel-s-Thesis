@@ -1,8 +1,5 @@
 using System.Collections;
-<<<<<<< Updated upstream
 using System.Collections.Generic;
-=======
->>>>>>> Stashed changes
 using UnityEngine;
 
 public class ControladorEnemigos2 : MonoBehaviour
