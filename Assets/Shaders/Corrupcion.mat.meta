@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:Assets/Shaders/Corrupcion.mat.meta
 guid: 2e96614e45257cf43b52a7210ebd83b8
+========
+guid: 5cfb86e6d91a6964cab0bdac12c9e672
+>>>>>>>> Stashed changes:Assets/PlayGround 1.asset.meta
+=======
+guid: 5b87cfaa5ef09ad4a8a31e8d33987b40
+>>>>>>> Stashed changes
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
