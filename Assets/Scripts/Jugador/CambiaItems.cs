@@ -101,18 +101,18 @@ public class CambiaItems : MonoBehaviour
                         //    hitinfo.collider.gameobject.setactive(false);
                         //    break;
 
-                        //case TipoObjeto.ROLLO:
-                        //    camara.GetComponent<Flash>().AumentarTiros();
-                        //    foreach (GameObject item in logica.objetos)
-                        //    {
-                        //        if (hitInfo.collider.gameObject == item)
-                        //        {
-                        //            informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
-                        //            break;
-                        //        }
-                        //    }
-                        //    hitInfo.collider.gameObject.SetActive(false);
-                        //    break;
+                        case TipoObjeto.ROLLO:
+                            camara.GetComponent<Flash>().AumentarTiros();
+                            foreach (GameObject item in logica.objetos)
+                            {
+                                if (hitInfo.collider.gameObject == item)
+                                {
+                                    informacionGuardar.aDesactivar.Add(logica.objetos.IndexOf(item));
+                                    break;
+                                }
+                            }
+                            hitInfo.collider.gameObject.SetActive(false);
+                            break;
 
                         case TipoObjeto.PUERTA:
                             GameObject puerta = hitInfo.collider.gameObject;
@@ -175,7 +175,6 @@ public class CambiaItems : MonoBehaviour
 
                         case TipoObjeto.CAMARA:
                             objetos.Add(camara);
-                            camara.GetComponent<Flash>().AumentarTiros();
                             informacionGuardar.camara = true;
                             foreach (GameObject item in logica.objetos)
                             {

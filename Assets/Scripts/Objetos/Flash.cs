@@ -41,7 +41,7 @@ public class Flash : MonoBehaviour
 
     public void AumentarTiros()
     {
-        tiros += 40;
+        tiros += 4;
         cantidad.text = tiros.ToString();
     }
     private void OnDisable()
