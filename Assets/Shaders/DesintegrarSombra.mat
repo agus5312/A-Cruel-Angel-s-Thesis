@@ -110,7 +110,7 @@ Material:
     - _NoiseScale: 50
     - _NoiseStrength: 10
     - _OcclusionStrength: 1
-    - _OutOffHeights: 1.0000005
+    - _OutOffHeights: -2
     - _Parallax: 0.02
     - _QueueControl: -1
     - _QueueOffset: 0
