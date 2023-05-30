@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.014
-    second: {fileID: 2100000, guid: bca8273d361e1554997ed057edccea48, type: 2}
+    second: {fileID: 2100000, guid: 03292d70fedfbe247b6e9a251583e7b1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Paleta
-    second: {instanceID: 0}
+    second: {fileID: 2100000, guid: 03292d70fedfbe247b6e9a251583e7b1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
